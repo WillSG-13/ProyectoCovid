@@ -43,12 +43,12 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6 text-nowrap div-header-button">
-                                                <div hidden id="dataTable_length" class="dataTables_length"
+                                                <div id="dataTable_length" class="dataTables_length"
                                                     aria-controls="dataTable">
-                                                    <button class="btn btn-primary" type="button"
-                                                        style="color: rgb(255, 255, 255);" data-bs-toggle="collapse"
-                                                        aria-controls="card-datos-p" href="#card-datos-p">+</button>
-                                                </div>
+                                                    <a href="Pacientes.html">   <button class="btn btn-primary" type="button"
+                                                        style="color: rgb(255, 255, 255);" >+</button>
+                                                </div></a>
+                                                 
                                             </div>
                                         </div>
                                     </div>
@@ -64,7 +64,7 @@
                                                 </div>
 
                                                 <div class="col-md-4 columna">
-                                                    <p class="texto-fila">Servicio Procedencia:<b>Emergencias</b> </p>
+                                                    <p class="texto-fila">Fecha Ingreso:<b>13/06/98</b> </p>
                                                 </div>
                                             </div>
                                             <div class="row fila">
@@ -84,7 +84,8 @@
                                                     <p class="texto-fila">Sexo: <b>Masculino</b> </p>
                                                 </div>
                                                 <div class="col-md-4 columna">
-                                                    <p class="texto-fila">Correo : <b>Wilamrsequeira13@gmail.com</b> </p>
+                                                    <p class="texto-fila">Correo : <b>Wilamrsequeira13@gmail.com</b>
+                                                    </p>
                                                 </div>
                                                 <div class="col-md-4 columna">
                                                     <p class="texto-fila">Celular : <b>61850865</b> </p>
@@ -99,7 +100,8 @@
                                     </div>
                                     <!--Pie de la tarjeta-->
                                     <div class="div-footer-card">
-                                        <button class="btn btn-primary" type="button" onclick="mostrarModalEditarUsuario()"
+                                        <button class="btn btn-primary" type="button"
+                                            onclick="mostrarModalEditarUsuario()"
                                             style="color: rgb(255, 255, 255);">Editar</button>
                                     </div>
                                 </div>
@@ -117,7 +119,7 @@
                                                 </div>
                                             </div>
                                             <div class="col-md-6 text-nowrap div-header-button">
-                                              
+
                                             </div>
                                         </div>
                                     </div>
@@ -142,9 +144,9 @@
                                                         <td class="text-start">Primario</td>
                                                         <td class="text-start">16/12/2022</td>
                                                         <td class="text-center" style="padding-right: 0px; ">
-                                                                <button
-                                                                class="btn btn-danger" type="button"
-                                                                style="margin-left: 8px;">Eliminar</button></td>
+                                                            <button class="btn btn-danger" type="button"
+                                                                style="margin-left: 8px;">Eliminar</button>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-start">2</td>
@@ -152,9 +154,9 @@
                                                         <td class="text-start">Primario</td>
                                                         <td class="text-start">16/12/2022</td>
                                                         <td class="text-center" style="padding-right: 0px; ">
-                                                                <button
-                                                                class="btn btn-danger" type="button"
-                                                                style="margin-left: 8px;">Eliminar</button></td>
+                                                            <button class="btn btn-danger" type="button"
+                                                                style="margin-left: 8px;">Eliminar</button>
+                                                        </td>
                                                     </tr>
                                                     <tr>
                                                         <td class="text-start">3</td>
@@ -162,16 +164,16 @@
                                                         <td class="text-start">Primario</td>
                                                         <td class="text-start">16/12/2022</td>
                                                         <td class="text-center" style="padding-right: 0px; ">
-                                                                <button
-                                                                class="btn btn-danger" type="button"
-                                                                style="margin-left: 8px;">Eliminar</button></td>
+                                                            <button class="btn btn-danger" type="button"
+                                                                style="margin-left: 8px;">Eliminar</button>
+                                                        </td>
                                                     </tr>
-            
+
                                                 </tbody>
                                             </table>
                                         </div>
                                     </div>
-                                    
+
 
                                     <!--Cuerpo de procedimientos no invasivos-->
                                     <div hidden id="card-datos-pr" class="">
@@ -227,8 +229,8 @@
 
                                     <!--footer de la carrd-->
                                     <div class="div-footer-card">
-                                        <button class="btn btn-primary" type="button"
-                                            style="color: rgb(255, 255, 255);">Agregar</button>
+                                        <button class="btn btn-primary" type="button" style="color: rgb(255, 255, 255);"
+                                            onclick="mostrarModalEditarUsuario()">Agregar</button>
                                     </div>
                                 </div>
                             </div>
@@ -250,9 +252,130 @@
         </footer>
     </div>
 
+    <!--Modals-->
+    <div class="modal " id="modalEditarPaciente" tabindex="" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">Editar paciente</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="width: auto;">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Nombre Completo </label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" readonly>
+                                    <small class="text-danger" id="emailHelp" class="form-text text-muted">*No
+                                        modificable</small>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Cedula</label>
+                                    <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                        readonly>
+                                    <small class="text-danger" id="emailHelp" class="form-text text-muted">*No
+                                        modificable</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Fecha nacimiento</label>
+                                    <input class="form-control" type="date">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label">Sexo</label>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Seleccione Sexo</option>
+                                            <option value="1">Femenino</option>
+                                            <option value="2">Masculino</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Fecha de ingreso</label>
+                                    <input class="form-control" type="date">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label">Provincia</label>
+                                        <select class="form-select" aria-label="Default select example">
+                                            <option selected>Seleccione Provincia</option>
+                                            <option value="1">Puntarenas</option>
+                                            <option value="2">Alajuela</option>
+                                            <option value="1">San Jose</option>
+                                            <option value="2">Cartago</option>
+                                            <option value="1">Limon</option>
+                                            <option value="2">Heredia</option>
+                                            <option value="2">Guanacaste</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Celular</label>
+                                    <input class="form-control" type="tel">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-check p-2" style="text-align: center;">
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal " id="modalAgregarSintoma" tabindex="" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">Lista de equipo usado en vía central</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>Seleccione equipo</option>
+                                <option value="1">Dolor de cabeza </option>
+                                <option value="2">Dolor de glandulas</option>
+                                <option value="2">Fiebre</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <button type="button" onclick="alerta()" class="btn btn-info "
+                                style="color: rgb(255, 255, 255);">agregar</button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                onclick="ocultar()">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/funciones.js"></script>
+    <script src="assets/js/Caso.js"></script>
 
 </body>
 

@@ -74,5 +74,7 @@ function navLateral() {
     </div>
 </nav> `;
 }
+
+
 nav();
 navLateral();
