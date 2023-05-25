@@ -1,8 +1,8 @@
 
 var navbar = document.querySelector('#masternav');
 function nav() {
-    navbar.innerHTML += 
-    `<nav class="navbar navbar-light navbar-expand-md " style="background: #4b70dc;">
+    navbar.innerHTML +=
+        `<nav class="navbar navbar-light navbar-expand-md " style="background: #4b70dc;">
             <div class="container-fluid">
                 <a class="navbar-brand d-flex align-items-center" href="#"
                 style="padding-left: 0px;height: 90px;margin-left: 25px;">
@@ -26,7 +26,7 @@ function nav() {
 
 var masternav = document.querySelector('#masternav-lateral');
 function navLateral() {
-    masternav.innerHTML +=` 
+    masternav.innerHTML += ` 
     <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0 " >
     <div class=" flex-column p-0">
         <hr class="sidebar-divider my-0">
@@ -37,6 +37,11 @@ function navLateral() {
                     <span>Estadisticas</span>
                 </a>
             </li>
+            <li class="nav-item">
+            <a class="nav-link active"  href="index.html" >
+                <span>Casos</span>
+            </a>
+        </li>
             <li class="nav-item ">
                 <a class="nav-link active" role="button" data-bs-toggle="collapse" aria-controls="accordionSidebar" href="#accordionSidebar">
                     <span>Catalogos</span>
@@ -44,35 +49,26 @@ function navLateral() {
                 <ul class="navbar-nav text-light collapse" id="accordionSidebar">
                     <li class="nav-item ">
                         <a class="nav-link active" role="button" href="procedimientos.html">
-                            <span>Procedimientos</span>
+                            <span>Usuarios</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link  active" href="germenes.html">
-                            <span>Germenes</span>
+                            <span>Hospitales</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="Diagnostico.html">
-                            <span>Diagonosticos</span>
+                        <a class="nav-link active" href="Pacientes.html">
+                            <span>Pacientes</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="equipos.html">
-                            <span>Equipos</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="equipos.html">
-                            <span>Organos</span>
-                        </a>
-                    </li>
+                    <a class="nav-link active" href="Diagnostico.html">
+                        <span>Sintomas</span>
+                    </a>
+                </li>
+
                 </ul> 
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="catalogoGlobal.html">
-                    <span>Global de Catalogos</span>
-                </a>
             </li>
         </ul>
     </div>
