@@ -3,8 +3,10 @@ var navbar = document.querySelector('#masternav');
 function nav() {
     navbar.innerHTML +=
         `<nav class="navbar navbar-light navbar-expand-md " style="background: #4b70dc;">
-            <div class="container-fluid">
-                <a class="navbar-brand d-flex align-items-center" href="#"
+           
+        <div class=" row container-fluid">
+            <div class="col-md-6">
+                <a class="navbar-brand d-flex align-items-center" href="index.html"
                 style="padding-left: 0px;height: 90px;margin-left: 25px;">
                     <span
                         class="bs-icon-sm bs-icon-rounded bs-icon-primary d-flex justify-content-center align-items-center me-2 bs-icon">
@@ -18,11 +20,15 @@ function nav() {
                             </path>
                         </svg>
                     </span> 
-                    <span style="color: rgba(255,255,255,0.9);font-size: 50px;padding-right: 0px;padding-bottom: 0px;">CRcovid</span>
+                    <span style="color: rgba(255,255,255,0.9);font-size: 50px;padding-right: 0px;padding-bottom: 0px;" >CRcovid</span>
                 </a>
+            </div>
+            <div class="col-md-6" style="text-align: right; color: rgba(255,255,255,0.9);">           
+              <a class="nav-link active"  href="index.html" >
+                <span>Registrarsse</span></a>
+            </div>
         </nav>`;
 }
-
 
 var masternav = document.querySelector('#masternav-lateral');
 function navLateral() {
@@ -33,12 +39,7 @@ function navLateral() {
 
         <ul class="navbar-nav text-light" >
             <li class="nav-item">
-                <a class="nav-link active"  href="index.html" >
-                    <span>Estadisticas</span>
-                </a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link active"  href="index.html" >
+            <a class="nav-link active"  href="caso.html" >
                 <span>Caso</span>
             </a>
         </li>
@@ -48,12 +49,12 @@ function navLateral() {
                 </a>
                 <ul class="navbar-nav text-light collapse" id="accordionSidebar">
                     <li class="nav-item ">
-                        <a class="nav-link active" role="button" href="procedimientos.html">
+                        <a class="nav-link active" role="button" href="usuarios.html">
                             <span>Usuarios</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  active" href="germenes.html">
+                        <a class="nav-link  active" href="hospitales.html">
                             <span>Hospitales</span>
                         </a>
                     </li>
@@ -63,12 +64,17 @@ function navLateral() {
                         </a>
                     </li>
                     <li class="nav-item">
-                    <a class="nav-link active" href="Diagnostico.html">
+                    <a class="nav-link active" href="sintomas.html">
                         <span>Sintomas</span>
                     </a>
                 </li>
 
                 </ul> 
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active"  href="index.html" >
+                    <span>Estadisticas</span>
+                </a>
             </li>
         </ul>
     </div>

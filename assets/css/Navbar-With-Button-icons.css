@@ -20,6 +20,7 @@
   --bs-icon-size: 1rem;
   width: calc(var(--bs-icon-size) * 1.5);
   height: calc(var(--bs-icon-size) * 1.5);
+  
 }
 
 .bs-icon-sm {

@@ -34,9 +34,9 @@ function alertaAceptarProcedimiento(){
 
 var ModalAgregarSintoma = new bootstrap.Modal(document.getElementById('modalAgregarSintoma'));
 function mostrarModalAgregarSintoma(){
-    ModalAgregarSintoma.show();
-}
-var modalEditarUsuario = new bootstrap.Modal(document.getElementById('modalEditarPaciente'));
+  ModalAgregarSintoma.show();}
+
+  var modalEditarUsuario = new bootstrap.Modal(document.getElementById('modalEditarPaciente'));
+
 function mostrarModalEditarUsuario(){
-    modalEditarUsuario.show();
-}
+  modalEditarUsuario.show();}
