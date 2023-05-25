@@ -32,7 +32,6 @@ function alertaAceptarProcedimiento(){
       });
 }
 
-
 var ModalAgregarSintoma = new bootstrap.Modal(document.getElementById('modalAgregarSintoma'));
 function mostrarModalAgregarSintoma(){
     ModalAgregarSintoma.show();

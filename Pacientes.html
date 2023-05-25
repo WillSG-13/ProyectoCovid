@@ -10,7 +10,6 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Navbar-With-Button-icons.css">
-    <script src="assets/js/funciones.js"></script>
 </head>
 
 <body id="page-top">
@@ -25,6 +24,71 @@
             <div id="content">
                 <div class="container-fluid">
                     <h3 class="text-dark mb-4">Pacientes</h3>
+
+                    <div class="card shadow">
+                        <div class="card-header py-3">
+                            <div class="row">
+                                <div class="col-md-12 text-nowrap">
+                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                                        <p class="text-primary m-0 fw-bold">Lista de Pacientes</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Cedula</label>
+                                        <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Nombre Completo </label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Fecha nacimiento</label>
+                                        <input class="form-control" type="date">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label">Sexo</label>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Seleccione Sexo</option>
+                                                <option value="1">Femenino</option>
+                                                <option value="2">Masculino</option>
+                                            </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Correo Electronico</label>
+                                        <input class="form-control" type="email">
+                                    </div>
+                                </div>
+                                <div class="col-md-6"">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Celular</label>
+                                        <input class="form-control" type="tel">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group form-check p-2" style="text-align: center;">
+                                <button type="submit" class="btn btn-primary">
+                                    Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                     <!--Primera Tabla-->
                     <div class="card shadow">
                         <div class="card-header py-3">
@@ -134,93 +198,9 @@
         </footer>
     </div>
     <!--Modals -->
-    <div class="modal " id="modalEditarPaciente" tabindex="" data-bs-backdrop="static" data-bs-keyboard="false"
-    role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">Editar paciente</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" style="width: auto;">
-                <form>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Nombre Completo </label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" readonly>
-                                <small class="text-danger" id="emailHelp" class="form-text text-muted">*No
-                                    modificable</small>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Cedula</label>
-                                <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                    readonly>
-                                <small class="text-danger" id="emailHelp" class="form-text text-muted">*No
-                                    modificable</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Fecha nacimiento</label>
-                                <input class="form-control" type="date">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label">Sexo</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Seleccione Sexo</option>
-                                        <option value="1">Femenino</option>
-                                        <option value="2">Masculino</option>
-                                    </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Fecha de ingreso</label>
-                                <input class="form-control" type="date">
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label">Provincia</label>
-                                    <select class="form-select" aria-label="Default select example">
-                                        <option selected>Seleccione Provincia</option>
-                                        <option value="1">Puntarenas</option>
-                                        <option value="2">Alajuela</option>
-                                        <option value="1">San Jose</option>
-                                        <option value="2">Cartago</option>
-                                        <option value="1">Limon</option>
-                                        <option value="2">Heredia</option>
-                                        <option value="2">Guanacaste</option>
-                                    </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Celular</label>
-                                <input class="form-control" type="tel">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group form-check p-2" style="text-align: center;">
-                        <button type="submit" class="btn btn-primary">
-                            Submit
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
+   
+    <!--Fin de los modals-->
+
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/funciones.js"></script>
