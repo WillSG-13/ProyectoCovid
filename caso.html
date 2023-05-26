@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>CRCovid</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Navbar-With-Button-icons.css">
     <script src="assets/js/funciones.js"></script>
@@ -135,30 +134,30 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td class="text-start">1</td>
                                             <td class="text-start">Dolor de cabeza</td>
-                                            <td class="text-start">Primario</td>
+                                            <td class="text-start">10/12/2022</td>
                                             <td class="text-start">16/12/2022</td>
+                                            <td class="text-start">Primario</td>
                                             <td class="text-center" style="padding-right: 0px; ">
                                                 <button class="btn btn-danger" type="button"
                                                     style="margin-left: 8px;">Eliminar</button>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-start">2</td>
                                             <td class="text-start">Dolor de Garganta</td>
-                                            <td class="text-start">Primario</td>
                                             <td class="text-start">16/12/2022</td>
+                                            <td class="text-start">20/12/2022</td>
+                                            <td class="text-start">Primario</td>
                                             <td class="text-center" style="padding-right: 0px; ">
                                                 <button class="btn btn-danger" type="button"
                                                     style="margin-left: 8px;">Eliminar</button>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="text-start">3</td>
                                             <td class="text-start">Fiebre</td>
+                                            <td class="text-start">20/12/2022</td>
+                                            <td class="text-start">30/12/2022</td>
                                             <td class="text-start">Primario</td>
-                                            <td class="text-start">16/12/2022</td>
                                             <td class="text-center" style="padding-right: 0px; ">
                                                 <button class="btn btn-danger" type="button"
                                                     style="margin-left: 8px;">Eliminar</button>
@@ -256,19 +255,18 @@
                 <div class="modal-body" style="width: auto;">
                     <form>
                         <div class="row">
+                            
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exampleInputPassword1">Nombre Completo </label>
-                                    <input type="text" class="form-control" id="exampleInputPassword1" readonly>
-                                    <small class="text-danger" id="emailHelp" class="form-text text-muted">*No
-                                        modificable</small>
+                                    <label for="exampleInputEmail1">Cedula</label>
+                                    <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Cedula</label>
-                                    <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                        readonly>
+                                    <label for="exampleInputPassword1">Nombre Completo </label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" readonly>
                                     <small class="text-danger" id="emailHelp" class="form-text text-muted">*No
                                         modificable</small>
                                 </div>
@@ -339,14 +337,14 @@
     <div class="modal-dialog modal-dialog-centered modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">Lista de equipo usado en vía central</h5>
+                <h5 class="modal-title" id="modalTitleId">Lista de Sintomas</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-7">
                         <select class="form-select" aria-label="Default select example">
-                            <option selected>Seleccione equipo</option>
+                            <option selected>Seleccione Sintoma</option>
                             <option value="1">Dolor de Cabeza</option>
                             <option value="1">Dolor de garganta</option>
                             <option value="2">Fiebre</option>
