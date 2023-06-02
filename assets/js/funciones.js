@@ -3,7 +3,6 @@ var navbar = document.querySelector('#masternav');
 function nav() {
     navbar.innerHTML +=
         `<nav class="navbar navbar-light navbar-expand-md " style="background: #4b70dc;">
-           
         <div class=" row container-fluid">
             <div class="col-md-6">
                 <a class="navbar-brand d-flex align-items-center" href="index.html"
@@ -23,8 +22,11 @@ function nav() {
                     <span style="color: rgba(255,255,255,0.9);font-size: 50px;padding-right: 0px;padding-bottom: 0px;" >CRcovid</span>
                 </a>
             </div>
-            <div class="col-md-6" style="text-align: right; color: rgba(255,255,255,0.9);">           
+            <div class="col-md-6" style="text-align: right;  justify-content: flex-end;
+            display: flex; color: rgba(255,255,255,0.9);">           
               <a class="nav-link active"  href="index.html" >
+                <span>Registrarsse</span></a>
+                <a class="nav-link active"  href="index.html" >
                 <span>Registrarsse</span></a>
             </div>
         </nav>`;
