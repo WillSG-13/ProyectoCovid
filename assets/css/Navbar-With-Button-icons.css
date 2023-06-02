@@ -119,8 +119,37 @@
 .input-group-append {
   cursor: pointer;
 }
-@media  screen and (max-width: 800px) {
+.navbar-collapse{
+  flex-grow: 0;
+}
+.btn-toggle{
+  color: white;
+}
+@media  screen and (max-width:760px) {
   .fila {
     height: auto;
   }
+  .navbar-collapse{
+  display: flex; 
+  justify-content: flex-end;
+  color: rgba(255,255,255,0.9);
+  }
+}
+li{
+  width: auto;
+}
+.side{
+  min-height: 100vh;
+  width: auto ;
+}
+
+
+.ml{
+  margin-right: 5px;
+}
+.text{
+  color: white;
+}
+.text:hover{
+  color: black;
 }
