@@ -26,8 +26,8 @@ function nav() {
                 <span class="navbar-toggler-icon" style=" "></span>
         </button>
         <div class="collapse navbar-collapse " id="navbar SupportedContent">
-                <button type="button" class="btn btn-dark ml"> <a class="nav-link" href="/estudiantes.html" id="menu-Item">Ingresar</a></button>
-                <button type="button" class="btn btn-light "> <a class="nav-link" href="/estudiantes.html" id="menu-Item">Registrarse</a></button> 
+                <button type="button" class="btn btn-dark ml"> <a class="nav-link" href="/login.html" id="menu-Item">Ingresar</a></button>
+                <button type="button" class="btn btn-light "> <a class="nav-link" href="/registro.html" id="menu-Item">Registrarse</a></button> 
         </div>
         </div>
     </nav>`;
