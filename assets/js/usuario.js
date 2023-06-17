@@ -124,9 +124,6 @@ function(e) {
     fetch("http://SistemaCovid-19.somee.com/Usuarios/agregar",
         {
             method: "PUT",
-            headers: {
-                "content-type": "application/json"
-            },
             body: JSON.stringify(data)
         })
         .then(respuesta => respuesta.json())
