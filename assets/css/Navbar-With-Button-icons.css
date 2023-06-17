@@ -9,6 +9,7 @@
   height: calc(var(--bs-icon-size) * 2);
   color: var(--bs-primary);
 }
+
 .table{
   margin: 33px 0px 0px;
   
@@ -109,52 +110,56 @@
   align-content: center;
   padding: 0px 12px 0px 12px;
 }
+
 .btn-info-equipo-add{
   height: auto;
 }
+
 .card-body-procedimientos{
   border: var(--bs-card-border-width) solid var(--bs-card-border-color);
 }
+
 .input-group-append {
   cursor: pointer;
 }
+
 .navbar-collapse{
   flex-grow: 0;
 }
+
 .btn-toggle{
   color: white;
 }
+
 li{
   width: auto;
 }
+
 .side{
   min-height: 100vh;
   width: auto ;
 }
+
 .ml{
   margin-right: 5px;
 }
+
 .px{
   padding-right: 10rem !important;
   padding-left: 10rem !important;
 }
+
 .containers{
   width: 100%;
-  max-width: 1320px;
+  max-width: 1366px;
   margin-left: auto;
   margin-right: auto;
-
 }
+
 @media  screen and (max-width:1000px) {
   .px{
     padding-right: 4rem !important;
     padding-left: 4rem !important;
-  }
-}
-@media  screen and (max-width:1500px) {
-  .containers{
-  width: 100%;
-  max-width: auto;
   }
 }
 
