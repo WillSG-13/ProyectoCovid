@@ -114,16 +114,45 @@ function cargarUsuario() {
 cargarUsuario();
 
 var frm  = document.getElementById("frmUsuario");
+
+
+
+function cargarDatos() {
+    numeroCedula = document.getElementById('numeroCedula').value;
+    nombreCompleto = document.getElementById('nombreCompleto').value;
+    fechaNacimiento = document.getElementById('fechaNacimiento').value;
+    numeroTelefono = document.getElementById('numeroTelefono').value;
+    parseInt(numeroTelefono);
+    email = document.getElementById('email').value;
+    contrasena = document.getElementById('password').value;
+    rol = document.getElementById('rol').value;
+    estado = "Act";
+    idUsuario = 0;
+
+    data = {
+        "idUsuario": 1,
+        "numeroCedula": 12345678,
+        "nombreCompleto": "Johan",
+        "fechaNacimiento": "2023-06-05T00:00:00",
+        "numeroTelefono": 88888888,
+        "email": "Johan@gmail.com",
+        "contrasena": "123",
+        "rol": "MED",
+        "estado": "INAC "
+    };
+
+}
 frm.addEventListener('submit',
 function(e) {
-
-
     e.preventDefault();
     cargarDatos();
     console.log(data);
     fetch("http://SistemaCovid-19.somee.com/Usuarios/agregar",
         {
             method: "PUT",
+            headers:{
+                "content-type":"application/json"
+            },
             body: JSON.stringify(data)
         })
         .then(respuesta => respuesta.json())
