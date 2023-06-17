@@ -138,6 +138,26 @@ li{
   padding-right: 10rem !important;
   padding-left: 10rem !important;
 }
+.containers{
+  width: 100%;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+@media  screen and (max-width:1000px) {
+  .px{
+    padding-right: 4rem !important;
+    padding-left: 4rem !important;
+  }
+}
+@media  screen and (max-width:1500px) {
+  .containers{
+  width: 100%;
+  max-width: auto;
+  }
+}
+
 @media  screen and (max-width:740px) {
   .fila {
     height: auto;
@@ -148,18 +168,12 @@ li{
   color: rgba(255,255,255,0.9);
   }
   .flex{
-
   display: flex; 
   justify-content: flex-end;
   }
-  .px{
-    padding-right: 4rem !important;
-    padding-left: 4rem !important;
-  }
-}
-@media  screen and (max-width:1000px) {
-  .px{
-    padding-right: 4rem !important;
-    padding-left: 4rem !important;
-  }
+  
+.px{
+  padding-right: 4rem !important;
+  padding-left: 4rem !important;
+ }
 }
