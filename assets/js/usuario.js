@@ -51,8 +51,7 @@ function agregarUsuario(e) {
         {
             method: "PUT",
             headers: {
-                "content-type": "application/json"
-            },
+                "content-type": "application/json"            },
             body: JSON.stringify(data)
         })
         .then(respuesta => respuesta.json())
@@ -151,7 +150,7 @@ function(e) {
         {
             method: "PUT",
             headers:{
-                "content-type":"application/json"
+                "Content-Type":"application/json"
             },
             body: JSON.stringify(data)
         })
