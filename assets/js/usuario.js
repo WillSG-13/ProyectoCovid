@@ -1,49 +1,60 @@
-
-var data = {};
-var idUsuario = ""
-var numeroCedula ="";
+var idUsuario = 0;
+var numeroCedula = 0;
 var nombreCompleto = "";
-var fechaNacimiento ="";
-var numeroTelefono = "";
+var fechaNacimiento = "";
+var numeroTelefono = 0;
 var email = "";
-var contrasena =""; 
-var rol ="";
-var estado =""; 
+var contrasena = "";
+var rol = "";
+var estado = "";
 
 
 function cargarDatos() {
-    numeroCedula = document.getElementById('numeroCedula').value;
-    parseInt(numeroCedula);
-    console.log(numeroCedula);
+    numeroCedula = parseInt(document.getElementById('numeroCedula').value);
     nombreCompleto = document.getElementById('nombreCompleto').value;
     fechaNacimiento = document.getElementById('fechaNacimiento').value;
-    numeroTelefono = document.getElementById('numeroTelefono').value;
-    parseInt(numeroTelefono);
+    numeroTelefono = parseInt(document.getElementById('numeroTelefono').value);
     email = document.getElementById('email').value;
     contrasena = document.getElementById('password').value;
     rol = document.getElementById('rol').value;
     estado = "Act";
     idUsuario = 0;
-
-    data = {
-        idUsuario: 0,
-        numeroCedula:numeroCedula,
-        nombreCompleto: nombreCompleto,
-        fechaNacimiento: fechaNacimiento,
-        numeroTelefono: numeroTelefono,
-        email: email,
-        contrasena: contrasena,
-        rol: rol,
-        estado: estado
-    };
-
 }
-
-
+cargarUsuario();
+var frm = document.getElementById("frmUsuario");
+frm.addEventListener('submit',
+    function (e) {
+        e.preventDefault();
+        cargarDatos();
+        var data ={
+        "idUsuario": 0,
+        "numeroCedula": numeroCedula,
+        "nombreCompleto": nombreCompleto,
+        "fechaNacimiento": "2023-06-05T00:00:00",
+        "numeroTelefono": numeroTelefono,
+        "email": email,
+        "contrasena": contrasena,
+        "rol": rol,
+        "estado": "ACT"
+        };
+        console.log(data);
+        fetch("http://SistemaCovid-19.somee.com/Usuarios/agregar",
+            {
+                method: "PUT",
+                mode: 'cors',
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data)
+            })
+            .then(respuesta => respuesta.json())
+            .then((contenidoRespuesta) => {
+                console.log(contenidoRespuesta);
+            })
+            .catch(console.log)
+    });
 
 function agregarUsuario(e) {
-
-
     e.preventDefault();
     cargarDatos();
     console.log(data);
@@ -51,7 +62,8 @@ function agregarUsuario(e) {
         {
             method: "PUT",
             headers: {
-                "content-type": "application/json"            },
+                "content-type": "application/json"
+            },
             body: JSON.stringify(data)
         })
         .then(respuesta => respuesta.json())
@@ -60,7 +72,6 @@ function agregarUsuario(e) {
         })
         .catch(console.log)
 }
-
 function cargarUsuario() {
     var tablaUsuario = document.querySelector('#tBody-Usuario');
     fetch("http://SistemaCovid-19.somee.com/Usuarios")
@@ -108,55 +119,3 @@ function cargarUsuario() {
             }, false)
         })
 })()
-
-
-cargarUsuario();
-
-var frm  = document.getElementById("frmUsuario");
-
-
-
-function cargarDatos() {
-    numeroCedula = document.getElementById('numeroCedula').value;
-    nombreCompleto = document.getElementById('nombreCompleto').value;
-    fechaNacimiento = document.getElementById('fechaNacimiento').value;
-    numeroTelefono = document.getElementById('numeroTelefono').value;
-    parseInt(numeroTelefono);
-    email = document.getElementById('email').value;
-    contrasena = document.getElementById('password').value;
-    rol = document.getElementById('rol').value;
-    estado = "Act";
-    idUsuario = 0;
-
-    data = {
-        "idUsuario": 1,
-        "numeroCedula": 12345678,
-        "nombreCompleto": "Johan",
-        "fechaNacimiento": "2023-06-05T00:00:00",
-        "numeroTelefono": 88888888,
-        "email": "Johan@gmail.com",
-        "contrasena": "123",
-        "rol": "MED",
-        "estado": "INAC "
-    };
-
-}
-frm.addEventListener('submit',
-function(e) {
-    e.preventDefault();
-    cargarDatos();
-    console.log(data);
-    fetch("http://SistemaCovid-19.somee.com/Usuarios/agregar",
-        {
-            method: "PUT",
-            headers:{
-                "Content-Type":"application/json"
-            },
-            body: JSON.stringify(data)
-        })
-        .then(respuesta => respuesta.json())
-        .then((contenidoRespuesta) => {
-            console.log(contenidoRespuesta);
-        })
-        .catch(console.log)
-});
