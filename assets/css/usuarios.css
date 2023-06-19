@@ -1,7 +1,49 @@
+
+html{
+    font-size: .9rem!important; 
+}
+#content-wrapper{
+    height: 100%;
+}
+td,th{
+    padding: 2px!important;
+    white-space: nowrap !important;
+    width: auto!important;
+}
+html, body {
+    min-height: 100%;
+}
 .tbl{
-    height: 400px;
+    height: 450px;
 }
 .card-body{
-    overflow: auto;
+    overflow: scroll;
+    overflow: hidden;
 }
 .table{height: 100%;}
+
+#tBody-Usuario{
+    vertical-align: middle!important;
+}
+.form-check-input{
+    margin-left: 10px!important;
+}
+.modal-sub{
+   background-color: #224abe; 
+   color: white;
+    width: 100%;
+}
+.Content-radios{
+    display: flex; 
+    justify-content: center; 
+    margin-left: -200px;
+}
+.form-check-input:checked
+{
+    background-color: rgb(55, 122, 209);
+    border-color: white;
+}
+.tbt{
+   margin: 35px;
+   border-left: 2px solid rgb(202, 196, 196);
+}

@@ -18,7 +18,7 @@ function nav() {
                     </path>
                 </svg>
             </span> 
-            <span style="color: rgba(255,255,255,0.9);font-size: 50px;padding-right: 0px;padding-bottom: 0px;" >CRcovid</span>
+            <span style="color: rgba(255,255,255,0.9);font-size: 30px;padding-right: 0px;padding-bottom: 0px;" >CRcovid</span>
         </a>
         <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -26,8 +26,8 @@ function nav() {
                 <span class="navbar-toggler-icon" style=" "></span>
         </button>
         <div class="collapse navbar-collapse " id="navbar SupportedContent">
-                <button type="button" class="btn btn-dark ml"> <a class="nav-link" href="/login.html" id="menu-Item">Ingresar</a></button>
-                <button type="button" class="btn btn-light "> <a class="nav-link" href="/registro.html" id="menu-Item">Registrarse</a></button> 
+                <button type="button" class="btn btn-dark ml btnl"> <a class="nav-link" href="/login.html" id="menu-Item">Ingresar</a></button>
+                <button type="button" class="btn btn-light btnl"> <a class="nav-link" href="/registro.html" id="menu-Item">Registrarse</a></button> 
         </div>
         </div>
     </nav>`;
@@ -36,7 +36,7 @@ function nav() {
 var masternav = document.querySelector('#masternav-lateral');
 function navLateral() {
     masternav.innerHTML += ` 
-    <nav class="navbar navbar-dark align-items-start side sidebar-dark accordion bg-gradient-primary p-0" >
+    <nav class="navbar navbar-dark align-items-start side sidebar-dark accordion bg-gradient-primary p-0 nav" >
     <div class=" flex-column p-0 m-4 ">
         <hr class="sidebar-divider my-0">
 

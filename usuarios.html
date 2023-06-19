@@ -1,212 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>CRCovid</title>
-        <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
-        <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-        <link rel="stylesheet" href="assets/css/Navbar-With-Button-icons.css">
-        <link rel="stylesheet" href="assets/css/usuarios.css">
-    </head>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>CRCovid</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+    <link rel="stylesheet" href="assets/css/Navbar-With-Button-icons.css">
+    <link rel="stylesheet" href="assets/css/usuarios.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <body id="page-top">
-        <!--Todo lo de la pagina-->
-        <div class="containers">
-            <div class="content" id="masternav"></div>
-            <!--cuerpo -->
-            <div id="wrapper">
-                <!--nav lateral -->
-                <div id="masternav-lateral" style="background-color:#224abe ; ">
-                </div>
-            
-                <div class="d-flex flex-column table" id="content-wrapper">
-                    <!--Contenido -->
-                    <div id="content">
-                        <div class="container-fluid c-tittle">
-                            <h3 class="text-dark mb-4 title">Usuarios</h3>
-                            <!--tarjeta para los datos del usuario -->
-                            <div class="card shadow">
-                                <div class="card-header py-3">
-                                    <div class="row">
-                                        <div class="col-md-12 text-nowrap">
-                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                                <p class="text-primary m-0 fw-bold">Datos del Usuarios</p>
-                                            </div>
+</head>
+
+<body id="page-top">
+    <div class="containers">
+        <div class="content" id="masternav"></div>
+    </div>
+    <!--Todo lo de la pagina-->
+    <div class="containers">
+
+        <!--cuerpo -->
+        <div id="wrapper">
+            <!--nav lateral -->
+            <div id="masternav-lateral" style="background-color:#224abe ; ">
+            </div>
+
+            <div class="d-flex flex-column table" id="content-wrapper">
+                <!--Contenido -->
+                <div id="content">
+                    <div class="container-fluid c-tittle">
+                        <h3 class="text-dark mb-4 title">Usuarios</h3>
+                        <!--tarjeta para los datos del usuario -->
+                        <div class="card shadow">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-md-6 text-nowrap">
+                                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                                            <p class="text-primary m-0 fw-bold">Datos del Usuarios</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text-md-end" id="dataTable_filter">
+                                            <label class="form-label">
+                                                <div class="d-grid gap-2">
+                                                    <button type="button" name="" id="" class="btn btn-outline-primary"
+                                                        style="border-radius: 60%; text-align: center;"
+                                                        onclick="mostrarModalBuscar()"> <i
+                                                            class="fas fa-search"></i></button>
+                                                </div>
+                                            </label>
                                         </div>
                                     </div>
                                 </div>
-                                <form class="needs-validation" novalidate id="frmUsuario">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="numeroCedula">Cedula</label>
-                                                <input class="form-control" id="numeroCedula" aria-describedby="emailHelp"
-                                                    required>
-                                                <div class="valid-feedback">
-                                                    Bien
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Mal
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="nombreCompleto">Nombre Completo</label>
-                                                <input type="text" class="form-control" id="nombreCompleto" required>
-                                                <div class="valid-feedback">
-                                                    Bien
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Ingrese nombre completo
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="fechaNacimiento">Fecha nacimiento</label>
-                                                <input class="form-control" type="date" required id="fechaNacimiento">
-                                                <div class="valid-feedback">
-                                                    Bien
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Ingrese la fecha de nacimiento
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label">Rol</label>
-                                                    <select class="form-select" id="rol" required>
-                                                        <option selected disabled value="">Selecciona un Rol</option>
-                                                        <option value="Com">Comun</option>
-                                                        <option value="Doc">Doctor</option>
-                                                        <option value="Admin">Administrador</option>
-                                                    </select>
-                                                    <div class="valid-feedback">
-                                                        Bien
-                                                    </div>
-                                                    <div class="invalid-feedback">
-                                                        Porfavor seleccione un sexo
-                                                    </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label for="email">Correo Electronico</label>
-                                                <input class="form-control" type="email" id="email" required>
-                                                <div class="valid-feedback">
-                                                    Bien
-                                                </div>
-                                                <div class="invalid-feedback">
-                                                    Ingrese el correo correctamente
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6"">
-                                        <div class=" form-group">
-                                            <label for="numeroTelefono">Telefono</label>
-                                            <input class="form-control" type="tel" required id="numeroTelefono">
-                                            <div class="valid-feedback">
-                                                Bien
-                                            </div>
-                                            <div class="invalid-feedback">
-                                                Ingrese el numero de celular
-                                            </div>
-                                        </div>
-                                    </div>
                             </div>
-                            <div class="row">
+                            <form class="needs-validation" novalidate id="frmUsuario">
+                                <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="password">contraseña</label>
-                                            <input class="form-control" type="password" required id="password" >
+                                            <label for="numeroCedula">Cedula</label>
+                                            <input class="form-control" id="numeroCedula" aria-describedby="emailHelp"
+                                                required>
                                             <div class="valid-feedback">
                                                 Bien
                                             </div>
                                             <div class="invalid-feedback">
-                                                ingrese una contraseña
+                                                Mal
                                             </div>
                                         </div>
                                     </div>
-                            </div>
-                            <div class="form-group form-check p-2" style="text-align: right;">
-                                <button type="submit" class="btn btn-primary">
-                                    Submit
-                                </button>
-                            </div>
-                                </form>
-                            </div>
-                            <!--tabla de los usuario-->
-                            <div class="card shadow tbl">
-                                <div class="card-header py-3">
-                                    <div class="row">
-                                        <div class="col-md-6 text-nowrap">
-                                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                                <p class="text-primary m-0 fw-bold">Lista de Usuarios</p>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="nombreCompleto">Nombre Completo</label>
+                                            <input type="text" class="form-control" id="nombreCompleto" required>
+                                            <div class="valid-feedback">
+                                                Bien
                                             </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="text-md-end dataTables_filter" id="dataTable_filter">
-                                                <label class="form-label">
-                                                    <input type="search" class="form-control form-control-sm"
-                                                        aria-controls="dataTable" placeholder="Buscar">
-                                                </label>
+                                            <div class="invalid-feedback">
+                                                Ingrese nombre completo
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card-body">
-                                    <div class="table-responsive table mt-2" id="dataTable" role="grid"
-                                        aria-describedby="dataTable_info">
-                                        <table class="table my-0" id="dataTable">
-                                            <thead>
-                                                <tr>
-                                                    <th>ID</th>
-                                                    <th>Cedula</th>
-                                                    <th>Nombre</th>
-                                                    <th>Fecha Nac</th>
-                                                    <th>Email</th>
-                                                    <th>Num Tel</th>
-                                                    <th>Estado</th>
-                                                    <th>Rol</th>
-                                                    <th class="text-Center">Acciones</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody id="tBody-Usuario">
-                                            </tbody>
-                                        </table>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="fechaNacimiento">Fecha nacimiento</label>
+                                            <input class="form-control" type="date" required id="fechaNacimiento">
+                                            <div class="valid-feedback">
+                                                Bien
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Ingrese la fecha de nacimiento
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label">Rol</label>
+                                                <select class="form-select" id="rol" required>
+                                                    <option selected disabled value="">Selecciona un Rol</option>
+                                                    <option value="COM">Comun</option>
+                                                    <option value="DOC">Doctor</option>
+                                                    <option value="ADMIN">Administrador</option>
+                                                </select>
+                                                <div class="valid-feedback">
+                                                    Bien
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Porfavor seleccione un sexo
+                                                </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email">Correo Electronico</label>
+                                            <input class="form-control" type="email" id="email" required>
+                                            <div class="valid-feedback">
+                                                Bien
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Ingrese el correo correctamente
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"">
+                                        <div class=" form-group">
+                                        <label for="numeroTelefono">Telefono</label>
+                                        <input class="form-control" type="tel" required id="numeroTelefono">
+                                        <div class="valid-feedback">
+                                            Bien
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Ingrese el numero de celular
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="password">contraseña</label>
+                                    <input class="form-control" type="password" required id="password">
+                                    <div class="valid-feedback">
+                                        Bien
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        ingrese una contraseña
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group form-check p-2" style="text-align: right;">
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
+                        </div>
+                        </form>
+                    </div>
+                    <!--tabla de los usuario-->
+                    <div class="card shadow tbl">
+                        <div class="card-header ">
+                            <div class="row">
+                                <div class="col-md-6 text-nowrap">
+                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                                        <p class="text-primary m-0 fw-bold">Lista de Usuarios</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-md-end dataTables_filter" id="dataTable_filter">
+                                        <label class="form-label">
+                                            <input type="search" class="form-control form-control-sm"
+                                                aria-controls="dataTable" placeholder="Buscar">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive table mt-2" id="dataTable" role="grid"
+                                aria-describedby="dataTable_info">
+                                <table class="table my-0" id="dataTable">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Cedula</th>
+                                            <th>Nombre</th>
+                                            <th>Fecha Nac</th>
+                                            <th>Email</th>
+                                            <th>Num Tel</th>
+                                            <th>Estado</th>
+                                            <th>Rol</th>
+                                            <th class="text-Center">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tBody-Usuario">
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-                <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
         </div>
-        <!--Foot note  -->
-        <div id="footnote">
-                <footer class="bg-white sticky-footer">
-                    <div class="container my-auto">
-                        <div class="text-center my-auto copyright"><span>Systema Unidad de Cuidados Intensivos © 2023</span>
+    </div>
+    <!--Foot note  -->
+    <div id="footnote">
+        <footer class="bg-white sticky-footer">
+            <div class="container my-auto">
+                <div class="text-center my-auto copyright"><span>Systema Unidad de Cuidados Intensivos © 2023</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    </div>
+
+    <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+
+    <!--Modals -->
+    <div class="modal modal-xl " id="modalBusqueda" tabindex="" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId"> Busqueda por Roles</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-sub">
+                    <div class="Content-radios">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="optionsRadios" id="option1"
+                                value="ADMIN">
+                            <label class="form-check-label " for="option1">
+                                Administrador
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input " type="radio" name="optionsRadios" id="option2" value="DOC">
+                            <label class="form-check-label" for="option2">
+                                Doctor
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input " type="radio" name="optionsRadios" id="option3" value="COM">
+                            <label class="form-check-label" for="option3">
+                                Comun
+                            </label>
                         </div>
                     </div>
-                </footer>
-        </div>
-        <!--Modals -->
 
-        <!--Fin de los modals-->
-        <div class="modal " id="modalEditarUsuario" tabindex="" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
-        aria-labelledby="modalTitleId" aria-hidden="true">
+                </div>
+
+                <div class="tbt" style="height: 600px;">
+                    <div class="table-responsive table mt-2" id="dataTable" role="grid"
+                        aria-describedby="dataTable_info">
+                        <table class="table my-0" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cedula</th>
+                                    <th>Nombre</th>
+                                    <th>Fecha Nac</th>
+                                    <th>Email</th>
+                                    <th>Num Tel</th>
+                                    <th>Estado</th>
+                                    <th>Rol</th>
+                                    <th class="text-Center">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tBody-Usuario-Modal">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Fin de los modals-->
+    <div class="modal " id="modalEditarUsuario" tabindex="" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-md" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -216,7 +292,7 @@
                 <div class="modal-body" style="width: auto;">
 
                     <form class="m-needs-validation" novalidate id="m-frmUsuario">
-                        <input type="text" id="id"  hidden>
+                        <input type="text" id="id" hidden>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -302,51 +378,54 @@
                         </div>
                 </div>
                 <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="m-password">contraseña</label>
-                                <input class="form-control" type="password" required id="m-password" >
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="m-password">contraseña</label>
+                            <input class="form-control" type="password" required id="m-password">
+                            <div class="valid-feedback">
+                                Bien
+                            </div>
+                            <div class="invalid-feedback">
+                                ingrese una contraseña
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label">Estado</label> <select class="form-select" id="m-estado" required>
+                                    <option selected disabled value="">Selecciona estado</option>
+                                    <option value="ACT">Activo</option>
+                                    <option value="INAC">Inactivo</option>
+                                </select>
                                 <div class="valid-feedback">
                                     Bien
                                 </div>
                                 <div class="invalid-feedback">
-                                    ingrese una contraseña
+                                    Porfavor seleccione un rol
                                 </div>
-                            </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label">Estado</label>                                    <select class="form-select" id="m-estado" required>
-                                        <option selected disabled value="">Selecciona estado</option>
-                                        <option value="ACT">Activo</option>
-                                        <option value="INAC">Inactivo</option>
-                                    </select>
-                                    <div class="valid-feedback">
-                                        Bien
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Porfavor seleccione un rol
-                                    </div>
-                            </div>
-                        </div>
-                        
+                    </div>
+
                 </div>
                 <div class="form-group form-check p-2" style="text-align: right;">
                     <button type="submit" class="btn btn-primary">
                         Submit
                     </button>
                 </div>
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
-        </div>
+    </div>
+    </div>
 
-        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-        <script src="assets/js/theme.js"></script>
-        <script src="assets/js/funciones.js"></script>
-        <script src="assets/js/usuario.js"></script>
 
-    </body>
+
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/funciones.js"></script>
+    <script src="assets/js/usuario.js"></script>
+    <script src="assets/js/app.js"></script>
+
+</body>
 
 </html>

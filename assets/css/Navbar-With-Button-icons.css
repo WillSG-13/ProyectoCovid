@@ -181,3 +181,19 @@ li{
   margin-bottom:0px!important;
   text-align: center;
 }
+.nav{
+  width: 150px!important;
+  
+}
+#wrapper{
+  background-color: #fafbfd;
+}
+.navi{
+  height: 70px;
+}
+.btnl{
+  height: 25px!important;
+  text-align: center;
+  padding: 0px 3px 0px 3px;
+  font-size: 0.9rem;
+} 

@@ -1,4 +1,5 @@
 var tablaUsuario = document.querySelector('#tBody-Usuario');
+var tablaUsuarioModal = document.querySelector('#tBody-Usuario-Modal');
 var data = {
 }
 function cargarDatos() {
@@ -21,35 +22,12 @@ function cargarDatos() {
         "estado": "ACT"
     };
 }
-function cargarDatosModal() {
 
-    var nombreCompleto = document.getElementById('m-nombreCompleto').value;
-    var numeroCedula = parseInt(document.getElementById('m-numeroCedula').value);
-    var fechaNacimiento = document.getElementById('m-fechaNacimiento').value;
-    var numeroTelefono = parseInt(document.getElementById('m-numeroTelefono').value);
-    var email = document.getElementById('m-email').value;
-    var contrasena = document.getElementById('m-password').value;
-    var rol = document.getElementById('m-rol').value;
-    var estado = document.getElementById('m-estado').value;
-    var id = parseInt(document.getElementById('id').value);
 
-    data = {
-        "idUsuario": id,
-        "numeroCedula": numeroCedula,
-        "nombreCompleto": nombreCompleto,
-        "fechaNacimiento": fechaNacimiento,
-        "numeroTelefono": numeroTelefono,
-        "email": email,
-        "contrasena": contrasena,
-        "rol": rol,
-        "estado": estado
-    };
-}
-//meto que maneja la interfaz de los usuarios el form
 function editarUsuario(e) {
     e.preventDefault();
     cargarDatosModal();
-    
+
     fetch("http://SistemaCovid-19.somee.com/Usuarios/modificar",
         {
             method: "PUT",
@@ -58,15 +36,14 @@ function editarUsuario(e) {
             },
             body: JSON.stringify(data)
         })
-        .then(respuesta =>  {
-            if(respuesta.status==200){
+        .then(respuesta => {
+            if (respuesta.status == 200) {
                 modalEditarUsuario.hide();
                 cargarUsuario();
             }
         })
         .catch(console.log)
 }
-//funciona para verificar los campos perod del modal 
 function agregarUsuario() {
     e.preventDefault();
     cargarDatos();
@@ -84,12 +61,14 @@ function agregarUsuario() {
                 cargarUsuario();
             }
         })
-        .catch(console.log)
+        .catch(error => {
+            console.log('Error:', error);
+        });
 }
+
 var modalEditarUsuario = new bootstrap.Modal(document.getElementById('modalEditarUsuario'));
 function mostrarModalEditar(idUsuario, numeroCedula, estado, rol, nombreCompleto,
     fechaNacimiento, email, numeroTelefono, contrasena) {
-    console.log(idUsuario);
     document.getElementById('id').value = idUsuario;
     document.getElementById('m-numeroCedula').value = numeroCedula;
     document.getElementById('m-nombreCompleto').value = nombreCompleto;
@@ -104,36 +83,191 @@ function mostrarModalEditar(idUsuario, numeroCedula, estado, rol, nombreCompleto
 }
 function cargarUsuario() {
     tablaUsuario.innerHTML = '';
-    console.log("hola cargando .....");
     fetch("http://SistemaCovid-19.somee.com/Usuarios")
         .then(respuesta => respuesta.json())
         .then((data) => {
             for (const usuario of data) {
                 tablaUsuario.innerHTML += `
-            <tr>
-            <td>${usuario.idUsuario}</td>
-            <td>${usuario.numeroCedula}</td>
-            <td>${usuario.nombreCompleto}</td>
-            <td>${usuario.fechaNacimiento.  }</td>
-            <td>${usuario.email}</td>
-            <td>${usuario.numeroTelefono}</td>
-            <td>${usuario.estado}</td>
-            <td>${usuario.rol}</td>
-            <td class="text-center flex" style="padding-right: 0px;">
-                <button class="btn btn-primary" type="button"onclick="mostrarModalEditar(
-                    '${usuario.idUsuario}','${usuario.numeroCedula}','${usuario.estado}','${usuario.rol}',
-                    '${usuario.nombreCompleto}','${usuario.fechaNacimiento}','${usuario.email}',
-                    '${usuario.numeroTelefono}','${usuario.contrasena}')">
-                    <i class="fas fa-edit"></i>
-                </button>
-                <button class="btn btn-danger" type="button" " >
-                    <i class="fas fa-trash"></i>
-                </button>
-            </td>
-        </tr>`;
+                <tr>
+                    <td>${usuario.idUsuario}</td>
+                    <td>${usuario.numeroCedula}</td>
+                    <td>${usuario.nombreCompleto}</td>
+                    <td>${usuario.fechaNacimiento}</td>
+                    <td>${usuario.email}</td>
+                    <td>${usuario.numeroTelefono}</td>
+                    <td>${usuario.estado}</td>
+                    <td>${usuario.rol}</td>
+                    <td class="text-center flex" style="padding-right: 0px;">
+                        <button class="btn btn-primary" type="button"onclick="mostrarModalEditar(
+                            '${usuario.idUsuario}','${usuario.numeroCedula}','${usuario.estado}','${usuario.rol}',
+                            '${usuario.nombreCompleto}','${usuario.fechaNacimiento}','${usuario.email}',
+                            '${usuario.numeroTelefono}','${usuario.contrasena}')">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-danger" type="button" onclick="eliminarUsuario(${usuario.numeroCedula},
+                            '${usuario.nombreCompleto}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>`;
             }
         });
 }
+function cargarUsuarioModal() {
+    tablaUsuarioModal.innerHTML = '';
+    fetch("http://SistemaCovid-19.somee.com/Usuarios")
+        .then(respuesta => respuesta.json())
+        .then((data) => {
+            for (const usuario of data) {
+                tablaUsuarioModal.innerHTML += `
+                <tr>
+                    <td>${usuario.idUsuario}</td>
+                    <td>${usuario.numeroCedula}</td>
+                    <td>${usuario.nombreCompleto}</td>
+                    <td>${usuario.fechaNacimiento}</td>
+                    <td>${usuario.email}</td>
+                    <td>${usuario.numeroTelefono}</td>
+                    <td>${usuario.estado}</td>
+                    <td>${usuario.rol}</td>
+                    <td class="text-center flex" style="padding-right: 0px;">
+                        <button class="btn btn-primary" type="button"onclick="mostrarModalEditar(
+                            '${usuario.idUsuario}','${usuario.numeroCedula}','${usuario.estado}','${usuario.rol}',
+                            '${usuario.nombreCompleto}','${usuario.fechaNacimiento}','${usuario.email}',
+                            '${usuario.numeroTelefono}','${usuario.contrasena}')">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button class="btn btn-danger" type="button" onclick="eliminarUsuario(${usuario.numeroCedula},
+                            '${usuario.nombreCompleto}')">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>`;
+            }
+        });
+}
+
+function eliminarUsuario(cedula, nombre) {
+    swal({
+        title: "Esta seguro que desea eliminar el usuario: " + nombre,
+        text: "",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+    }).then((willDelete) => {
+        if (willDelete) {
+            getUsuario(cedula).then(respuesta => desactivar(respuesta));
+        }
+    });
+}
+
+cargarUsuario();
+
+
+function getUsuario(cedula) {
+    return fetch("http://SistemaCovid-19.somee.com/Usuarios/" + cedula)
+        .then(response => response.json())
+        .then((json) => {
+            return json;
+        })
+        .catch(error => {
+            console.log('Error:', error);
+        });
+}
+
+
+function desactivar(respuesta) {
+    if (respuesta.estado.trim() !== "INAC") {
+        respuesta.estado = "INAC"
+        fetch("http://SistemaCovid-19.somee.com/Usuarios/desactivar/",
+            {
+                method: "POST",
+                headers: {
+                    "content-type": "application/json"
+                },
+                body: JSON.stringify(respuesta)
+            })
+            .then(response => {
+                if (response.status == 200) {
+                    swal({
+                        title: "Eliminado Correctamente",
+                        icon: "success",
+                        buttons: false,
+                        timer: 1000
+                    });
+                    cargarUsuario();
+                } else {
+                    swal({
+                        title: "Error Al eliminar",
+                        icon: "error",
+                        buttons: false,
+                        timer: 1000
+                    });
+                }
+            })
+            .catch(console.log);
+    } else {
+        swal({
+            title: "No se puede desactivar porque ya se encuentra desactivado",
+            icon: "error",
+            buttons: true,
+        });
+    }
+
+}
+var modalBusqueda = new bootstrap.Modal(document.getElementById('modalBusqueda'));
+ 
+function mostrarModalBuscar() {
+    
+    var radioButtons = document.getElementsByName('optionsRadios');
+    radioButtons.forEach(function (radioButtons) {
+        radioButtons.addEventListener('change', function () {
+            console.log(radioButtons.value);
+            buscarUserPorRol(radioButtons.value).then(respuesta=>cargarTablaRol(respuesta));
+        })
+    })
+    cargarUsuarioModal()
+    modalBusqueda.show();
+}
+
+function buscarUserPorRol(rol) {
+    return fetch("http://SistemaCovid-19.somee.com/Usuarios/getUsuarioRol/" +rol)
+        .then(response => response.json())
+        .then((json) => {
+            return json;
+        })
+        .catch(error => {
+            console.log('Error:', error);
+        });
+}
+function cargarTablaRol(data) {
+    tablaUsuarioModal.innerHTML = ``;
+    for (const usuario of data) {
+        tablaUsuarioModal.innerHTML += `
+            <tr>
+                <td>${usuario.idUsuario}</td>
+                <td>${usuario.numeroCedula}</td>
+                <td>${usuario.nombreCompleto}</td>
+                <td>${usuario.fechaNacimiento}</td>
+                <td>${usuario.email}</td>
+                <td>${usuario.numeroTelefono}</td>
+                <td>${usuario.estado}</td>
+                <td>${usuario.rol}</td>
+                <td class="text-center flex" style="padding-right: 0px;">
+                    <button class="btn btn-primary" type="button"onclick="mostrarModalEditar(
+                        '${usuario.idUsuario}','${usuario.numeroCedula}','${usuario.estado}','${usuario.rol}',
+                        '${usuario.nombreCompleto}','${usuario.fechaNacimiento}','${usuario.email}',
+                        '${usuario.numeroTelefono}','${usuario.contrasena}')">
+                        <i class="fas fa-edit"></i>
+                    </button>
+                    <button class="btn btn-danger" type="button" onclick="eliminarUsuario(${usuario.numeroCedula},
+                        '${usuario.nombreCompleto}')">
+                        <i class="fas fa-trash"></i>
+                    </button>
+                </td>
+            </tr>`;
+        }
+}
+
 
 (function () {
     'use strict'
@@ -176,5 +310,3 @@ function cargarUsuario() {
             }, false)
         })
 })();
-
-cargarUsuario();

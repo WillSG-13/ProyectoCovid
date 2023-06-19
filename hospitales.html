@@ -4,192 +4,243 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>CRcovid</title>
+    <title>CRCovid</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Navbar-With-Button-icons.css">
-    <script src="assets/js/funciones.js"></script>
+    <link rel="stylesheet" href="assets/css/usuarios.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body id="page-top">
+    <div class="containers">
+        <div class="content" id="masternav"></div>
+    </div>
+    <!--Todo lo de la pagina-->
+    <div class="containers">
 
-    <div id="masternav"></div>
+        <!--cuerpo -->
+        <div id="wrapper">
+            <!--nav lateral -->
+            <div id="masternav-lateral" style="background-color:#224abe ; ">
+            </div>
 
-    <div id="wrapper">
-
-        <div id="masternav-lateral" style="background-color:#224abe ; "></div>
-
-        <div class="d-flex flex-column table" id="content-wrapper">
-            <div id="content">
-                <div class="container-fluid">
-                    <h3 class="text-dark mb-4">Hospitales</h3>
-                    <!--Primera Tabla-->
-                    <div class="card shadow">
-                        <div class="card-header py-3">
-                            <div class="row">
-                                <div class="col-md-6 text-nowrap">
-                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <p class="text-primary m-0 fw-bold">Lista de Hospitales</p>
+            <div class="d-flex flex-column table" id="content-wrapper">
+                <!--Contenido -->
+                <div id="content">
+                    <div class="container-fluid c-tittle">
+                        <h3 class="text-dark mb-4 title">Usuarios</h3>
+                        <!--tarjeta para los datos del usuario -->
+                        <div class="card shadow">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-md-6 text-nowrap">
+                                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                                            <p class="text-primary m-0 fw-bold">Datos del Usuarios</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text-md-end" id="dataTable_filter">
+                                            <label class="form-label">
+                                                <div class="d-grid gap-2">
+                                                    <button type="button" name="" id="" class="btn btn-outline-primary"
+                                                        style="border-radius: 60%; text-align: center;"
+                                                        onclick="mostrarModalBuscar()">
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </div>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="text-md-end dataTables_filter" id="dataTable_filter">
-                                        <label class="form-label">
-                                        <input type="search" class="form-control form-control-sm"
-                                        aria-controls="dataTable" placeholder="Buscar">
-                                        </label>
+                            </div>
+                            <form class="needs-validation" novalidate id="frmHospital">
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="nombre">Nombre</label>
+                                            <input type="text" class="form-control" id="nombre" required>
+                                            <div class="valid-feedback">
+                                                Bien
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Ingrese el nombre del hospitales
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label">Provincia</label>
+                                                <select class="form-select" id="provincia" required>
+                                                    <option selected disabled value="">Selecciona una Provincia</option>
+                                                    <option value="Puntarenas">Puntarenas</option>
+                                                    <option value="Alajuela">Alajuela</option>
+                                                    <option value="Cartago">Cartago</option>
+                                                    <option value="Guanacaste">Guanacaste</option>
+                                                    <option value="Limon">Limon</option>
+                                                    <option value="San Jose">San Jose</option>
+                                                    <option value="Heredia">Heredia</option>
+                                                </select>
+                                                <div class="valid-feedback">
+                                                    Bien
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                    Porfavor seleccione una Provincia </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group form-check p-2" style="text-align: right;">
+                                    <button type="submit" class="btn btn-primary">
+                                        Submit
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <!--tabla de los usuario-->
+                        <div class="card shadow tbl">
+                            <div class="card-header ">
+                                <div class="row">
+                                    <div class="col-md-6 text-nowrap">
+                                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                                            <p class="text-primary m-0 fw-bold">Lista de Usuarios</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text-md-end dataTables_filter" id="dataTable_filter">
+                                            <label class="form-label">
+                                                <input type="search" class="form-control form-control-sm"
+                                                    aria-controls="dataTable" placeholder="Buscar" id="buscar">
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive table mt-2" id="dataTable" role="grid"
+                                    aria-describedby="dataTable_info">
+                                    <table class="table my-0" id="dataTable">
+                                        <thead>
+                                            <tr>
+                                                <th>idHospital</th>
+                                                <th>nombre</th>
+                                                <th>provincia</th>
+                                                <th>estado</th>
+                                                <th class="text-center">Acciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tBody-Hospital">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Foot note  -->
+        <div id="footnote">
+            <footer class="bg-white sticky-footer">
+                <div class="container my-auto">
+                    <div class="text-center my-auto copyright"><span>Systema Unidad de Cuidados Intensivos © 2023</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+
+
+    <!--Foot Males  -->
+    <div class="modal " id="modalEditarHospital" tabindex="" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId"> Agregar Hospital</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="width: auto;">
+
+                    <form class="m-needs-validation" novalidate id="frmHospital">
+                        <input type="text" class="form-control" id="m-idHospital" required hidden> 
+                        
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="m-nombre">Nombre</label>
+                                    <input type="text" class="form-control" id="m-nombre" required>
+                                    <div class="valid-feedback">
+                                        Bien
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Ingrese el nombre del hospitales
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive table mt-2" id="dataTable" role="grid"
-                                aria-describedby="dataTable_info">
-                                <table class="table my-0" id="dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-start">ID Hopital</th>
-                                            <th class="text-start">&nbsp;Nombre</th>
-                                            <th class="text-start">Provincia.&nbsp; &nbsp; &nbsp;&nbsp;</th>
-                                            <th class="text-start">Tipo</th>
-                                            <th class="text-start">Estado</th>
-                                            <th class="text-center">Acciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-start">1</td>
-                                            <td class="text-start">Monseñor Sanabria</td>
-                                            <td class="text-start">Puntarenas</td>
-                                            <td class="text-start">Publico</td>
-                                            <td class="text-start">Activo</td>
-                                            <td class="text-center" style="padding-right: 0px;"><button
-                                                    class="btn btn-primary" type="button">Editar</button><button
-                                                    class="btn btn-danger" type="button"
-                                                    style="margin-left: 8px;">Eliminar</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-start">2</td>
-                                            <td class="text-start">Mexico</td>
-                                            <td class="text-start">San José </td>
-                                            <td class="text-start">Publico</td>
-                                            <td class="text-start">Activo</td>
-                                            <td class="text-center" style="padding-right: 0px;"><button
-                                                    class="btn btn-primary" type="button">Editar</button><button
-                                                    class="btn btn-danger" type="button"
-                                                    style="margin-left: 8px;">Eliminar</button></td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label">Provincia</label>
+                                        <select class="form-select" id="m-provincia" required>
+                                            <option selected disabled value="">Selecciona una Provincia</option>
+                                            <option value="Puntarenas">Puntarenas</option>
+                                            <option value="Alajuela">Alajuela</option>
+                                            <option value="Cartago">Cartago</option>
+                                            <option value="Guanacaste">Guanacaste</option>
+                                            <option value="Limon">Limon</option>
+                                            <option value="San Jose">San Jose</option>
+                                            <option value="Heredia">Heredia</option>
+                                        </select>
+                                        <div class="valid-feedback">
+                                            Bien
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Porfavor seleccione una Provincia
+                                        </div>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="sfooter-card " style="text-align: right  ;">
-                            <button class="btn btn-success" type="button" style="color: rgb(255, 255, 255);" onclick="MostrarModalAgregarHospital()">Agregar</button>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label">Estado</label>
+                                        <select class="form-select" id="m-estado" required>
+                                            <option selected disabled value="">Selecciona una Provincia</option>
+                                            <option value="ACT">Activo</option>
+                                            <option value="INAC">Inactivo</option>
+                                        </select>
+                                        <div class="valid-feedback">
+                                            Bien
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Porfavor seleccione un estado 
+                                        </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-
+                        
+                        <div class="form-group form-check p-2" style="text-align: right;">
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
-
         </div>
-
-        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-    </div>
-
-    <div id="footnote">
-        <footer class="bg-white sticky-footer">
-            <div class="container my-auto">
-                <div class="text-center my-auto copyright"><span>Systema Unidad de Cuidados Intensivos © 2023</span>
-                </div>
-            </div>
-        </footer>
-    </div>
-
-    <div class="modal " id="modalAgregarHospital" tabindex="" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
-    aria-labelledby="modalTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId"> Agregar Hospital</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" style="width: auto;">
-                <form>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Id</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1"readonly>
-                                <small class="text-danger"  id="emailHelp" class="form-text text-muted">*No modificable</small>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Nombre</label>
-                                <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label">Tipo</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Seleccione Tipo</option>
-                                    <option value="1">Publico</option>
-                                    <option value="2">Privado</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label">Provincia</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Seleccione Provincia</option>
-                                    <option value="1">Puntarenas</option>
-                                    <option value="2">Alajuela</option>
-                                    <option value="1">San Jose</option>
-                                    <option value="2">Cartago</option>
-                                    <option value="1">Limon</option>
-                                    <option value="2">Heredia</option>
-                                    <option value="2">Guanacaste</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label">Estado</label>
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>Seleccione Estado</option>
-                                    <option value="1">Activo</option>
-                                    <option value="2">Inactivo</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                   
-                    <div class="form-group form-check p-2" style="text-align: center;">
-                        <button type="submit" class="btn btn-primary">
-                            Submit
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
     </div>
 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/funciones.js"></script>
     <script src="assets/js/hospitales.js"></script>
-
 
 </body>
 
