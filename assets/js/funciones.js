@@ -2,7 +2,7 @@
 var navbar = document.querySelector('#masternav');
 function nav() {
     navbar.innerHTML +=
-        `<nav class=" navbar navbar-light navbar-expand-md bg-body-tertiary" style="background: #4b70dc;">
+        `<nav class="  navbar navbar-light navbar-expand-md bg-body-tertiary navi" style="background: #4b70dc;">
         <div class="container-fluid">
         <a class="navbar-brand d-flex align-items-center" href="index.html"
         style="padding-left: 0px;height: 90px;margin-left: 25px;">

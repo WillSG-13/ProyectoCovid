@@ -10,11 +10,6 @@
   color: var(--bs-primary);
 }
 
-.table{
-  margin: 33px 0px 0px;
-  
-}
-
 .bs-icon-xs {
   --bs-icon-size: 1rem;
   width: calc(var(--bs-icon-size) * 1.5);
@@ -136,7 +131,7 @@ li{
 }
 
 .side{
-  min-height: 100vh;
+  min-height: 100%;
   width: auto ;
 }
 
@@ -181,4 +176,8 @@ li{
   padding-right: 4rem !important;
   padding-left: 4rem !important;
  }
+}
+.title{
+  margin-bottom:0px!important;
+  text-align: center;
 }

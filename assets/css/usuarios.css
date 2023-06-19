@@ -1,0 +1,7 @@
+.tbl{
+    height: 400px;
+}
+.card-body{
+    overflow: auto;
+}
+.table{height: 100%;}
