@@ -10,88 +10,173 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Navbar-With-Button-icons.css">
+    <link rel="stylesheet" href="assets/css/usuarios.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body id="page-top">
+    <div class="containers">
+        <div class="content" id="masternav"></div>
+    </div>
+    <!--Todo lo de la pagina-->
+    <div class="containers">
 
-    <div id="masternav"></div>
+        <!--cuerpo -->
+        <div id="wrapper">
+            <!--nav lateral -->
+            <div id="masternav-lateral" style="background-color:#224abe ; ">
+            </div>
 
-    <div id="wrapper">
-
-        <div id="masternav-lateral" style="background-color:#224abe ; "></div>
-
-        <div class="d-flex flex-column table" id="content-wrapper">
-            <div id="content">
-                <div class="container-fluid">
-                    <h3 class="text-dark mb-4">Pacientes</h3>
-
-                    <div class="card shadow">
-                        <div class="card-header py-3">
-                            <div class="row">
-                                <div class="col-md-12 text-nowrap">
-                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <p class="text-primary m-0 fw-bold">Lista de Pacientes</p>
+            <div class="d-flex flex-column table" id="content-wrapper">
+                <!--Contenido -->
+                <div id="content">
+                    <div class="container-fluid c-tittle">
+                        <h3 class="text-dark mb-4 title">Pacientes</h3>
+                        <!--tarjeta para los datos del usuario -->
+                        <div class="card shadow">
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-md-6 text-nowrap">
+                                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                                            <p class="text-primary m-0 fw-bold">Datos del Paciente</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="text-md-end" id="dataTable_filter">
+                                            <label class="form-label">
+                                                <div class="d-grid gap-2">
+                                                    <button type="button" name="" id="" class="btn btn-outline-primary"
+                                                        style="border-radius: 60%; text-align: center;"
+                                                        onclick="mostrarModalBuscar()"> <i
+                                                            class="fas fa-search"></i></button>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <form class="needs-validation" novalidate id="frmUsuario">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="numeroCedula">Cedula</label>
+                                            <input class="form-control" id="numeroCedula" aria-describedby="emailHelp"
+                                                required>
+                                            <div class="valid-feedback">
+                                                Bien
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                 Ingrese un numero de cedula;
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="nombreCompleto">Nombre Completo</label>
+                                            <input type="text" class="form-control" id="nombreCompleto" required>
+                                            <div class="valid-feedback">
+                                                Bien
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Ingrese nombre completo
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="edad">Edad
+                                            </label>
+                                            <input class="form-control" type="text" required id="edad">
+                                            <div class="valid-feedback">
+                                                Bien
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Ingrese la fecha de edad
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label">Provincia</label>
+                                                <select class="form-select" id="provincia" required>
+                                                    <option selected disabled value="">Selecciona una Provincia</option>
+                                                    <option value="Puntarenas">Puntarenas</option>
+                                                    <option value="Alajuela">Alajuela</option>
+                                                    <option value="Cartago">Cartago</option>
+                                                    <option value="Guanacaste">Guanacaste</option>
+                                                    <option value="Limon">Limon</option>
+                                                    <option value="San Jose">San Jose</option>
+                                                    <option value="Heredia">Heredia</option>
+                                                </select>
+                                                <div class="valid-feedback">
+                                                    Bien
+                                                </div>
+                                                <div class="invalid-feedback">
+                                                     seleccione una Provincia </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="email">Correo Electronico</label>
+                                            <input class="form-control" type="email" id="email" required>
+                                            <div class="valid-feedback">
+                                                Bien
+                                            </div>
+                                            <div class="invalid-feedback">
+                                                Ingrese el correo correctamente
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"">
+                                        <div class=" form-group">
+                                        <label for="numeroTelefono">Telefono</label>
+                                        <input class="form-control" type="tel" required id="numeroTelefono">
+                                        <div class="valid-feedback">
+                                            Bien
+                                        </div>
+                                        <div class="invalid-feedback">
+                                            Ingrese el numero de celular
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="password">Etapa de Vida</label>
+                                    <select class="form-select" id="etapaDeVida" required>
+                                        <option selected disabled value="">Selecciona etapa </option>
+                                        <option value="Infancia">Infancia</option>
+                                        <option value="Niñez">Niñez</option>
+                                        <option value="Adolescencia">Adolescencia</option>
+                                        <option value="Guanacaste">Juventud</option>
+                                        <option value="Adultez">Adultez</option>
+                                        <option value="Ancianidad">Ancianidad</option>
+                                    </select>
+                                    <div class="valid-feedback">
+                                        Bien
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Porfavor seleccione una etapa de vida  
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <form>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Cedula</label>
-                                        <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputPassword1">Nombre Completo </label>
-                                        <input type="text" class="form-control" id="exampleInputPassword1">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Fecha nacimiento</label>
-                                        <input class="form-control" type="date">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label">Sexo</label>
-                                            <select class="form-select" aria-label="Default select example">
-                                                <option selected>Seleccione Sexo</option>
-                                                <option value="1">Femenino</option>
-                                                <option value="2">Masculino</option>
-                                            </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Correo Electronico</label>
-                                        <input class="form-control" type="email">
-                                    </div>
-                                </div>
-                                <div class="col-md-6"">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Celular</label>
-                                        <input class="form-control" type="tel">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group form-check p-2" style="text-align: center;">
-                                <button type="submit" class="btn btn-primary">
-                                    Submit
-                                </button>
-                            </div>
+                        <div class="form-group form-check p-2" style="text-align: right;">
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
+                        </div>
                         </form>
                     </div>
-                    <!--Primera Tabla-->
-                    <div class="card shadow">
-                        <div class="card-header py-3">
+                    <!--tabla de los usuario-->
+                    <div class="card shadow tbl">
+                        <div class="card-header ">
                             <div class="row">
                                 <div class="col-md-6 text-nowrap">
                                     <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
@@ -114,81 +199,29 @@
                                 <table class="table my-0" id="dataTable">
                                     <thead>
                                         <tr>
-                                            <th class="text-start">Cedula</th>
-                                            <th class="text-start">Nombre</th>
-                                            <th class="text-start">Fecha Nac</th>
-                                            <th class="text-start">Correo</th>
-                                            <th class="text-start">Celular</th>
-                                            <th class="text-start">Usuario</th>
-                                            <th class="text-start">Estado</th>
-                                            <th class="text-start">Etapa</th>
-                                            <th class="text-start">Sexo</th>
-                                            <th class="text-Center">Acciones</th>
+                                            <th>ID</th>
+                                            <th>Cedula</th>
+                                            <th>Nombre</th>
+                                            <th>Edad</th>
+                                            <th>Provincia</th>
+                                            <th>Email</th>
+                                            <th>Num Tel</th>
+                                            <th>Estado</th>
+                                            <th>Etapa vida</th>
+                                            <th class="text-center">Acciones</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-start">117120060</td>
-                                            <td class="text-start">Wilmar sequeira Guevara</td>
-                                            <td class="text-start">13/06/1998</td>
-                                            <th class="text-start">Wilmarsequeira13@gmail.com</th>
-                                            <th class="text-start">61850865</th>
-                                            <th class="text-start">Luis Guevara</th>
-                                            <th class="text-start">Activo</th>
-                                            <th class="text-start">Vejes</th>
-                                            <th class="text-start">Masculino</th>
-                                            <td class="text-center" style="padding-right: 0px;"><button
-                                                    class="btn btn-primary" type="button">Editar</button><button
-                                                    class="btn btn-danger" type="button"
-                                                    style="margin-left: 8px;">Eliminar</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-start">117120060</td>
-                                            <td class="text-start">Wilmar sequeira Guevara</td>
-                                            <td class="text-start">13/06/1998</td>
-                                            <th class="text-start">Wilmarsequeira13@gmail.com</th>
-                                            <th class="text-start">61850865</th>
-                                            <th class="text-start">Luis Guevara</th>
-                                            <th class="text-start">Activo</th>
-                                            <th class="text-start">Vejes</th>
-                                            <th class="text-start">Masculino</th>
-                                            <td class="text-center" style="padding-right: 0px;"><button
-                                                    class="btn btn-primary" type="button">Editar</button><button
-                                                    class="btn btn-danger" type="button"
-                                                    style="margin-left: 8px;">Eliminar</button></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-start">117120060</td>
-                                            <td class="text-start">Wilmar sequeira Guevara</td>
-                                            <td class="text-start">13/06/1998</td>
-                                            <th class="text-start">Wilmarsequeira13@gmail.com</th>
-                                            <th class="text-start">61850865</th>
-                                            <th class="text-start">Luis Guevara</th>
-                                            <th class="text-start">Activo</th>
-                                            <th class="text-start">Vejes</th>
-                                            <th class="text-start">Masculino</th>
-                                            <td class="text-center" style="padding-right: 0px;"><button
-                                                    class="btn btn-primary" type="button">Editar</button><button
-                                                    class="btn btn-danger" type="button"
-                                                    style="margin-left: 8px;">Eliminar</button></td>
-                                        </tr>
-                                        
+                                    <tbody id="tBody-Paciente">
                                     </tbody>
                                 </table>
                             </div>
-                        </div>
-                        <div class="sfooter-card">
-                            <button class="btn btn-success" onclick="mostrarModalEditarUsuario()" type="button"
-                                style="color: rgb(255, 255, 255);" >Agregar</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
     </div>
-
+    <!--Foot note  -->
     <div id="footnote">
         <footer class="bg-white sticky-footer">
             <div class="container my-auto">
@@ -197,14 +230,75 @@
             </div>
         </footer>
     </div>
+    </div>
+
+    <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
+
     <!--Modals -->
-   
-    <!--Fin de los modals-->
+    <div class="modal modal-xl " id="modalBusqueda" tabindex="" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId"> Busqueda por Roles</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-sub">
+                    <div class="Content-radios">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="optionsRadios" id="option1"
+                                value="ADMIN">
+                            <label class="form-check-label " for="option1">
+                                Administrador
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input " type="radio" name="optionsRadios" id="option2" value="DOC">
+                            <label class="form-check-label" for="option2">
+                                Doctor
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input " type="radio" name="optionsRadios" id="option3" value="COM">
+                            <label class="form-check-label" for="option3">
+                                Comun
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="tbt" style="height: 600px;">
+                    <div class="table-responsive table mt-2" id="dataTable" role="grid"
+                        aria-describedby="dataTable_info">
+                        <table class="table my-0" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Cedula</th>
+                                    <th>Nombre</th>
+                                    <th>Edad</th>
+                                    <th>Email</th>
+                                    <th>Num Tel</th>
+                                    <th>Estado</th>
+                                    <th>Rol</th>
+                                    <th class="text-Center">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tBody-Usuario-Modal">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/funciones.js"></script>
-    <script src="assets/js/Caso.js"></script>  
+    <script src="assets/js/paciente.js"></script>
 
 </body>
 

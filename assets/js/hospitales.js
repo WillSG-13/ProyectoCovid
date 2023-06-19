@@ -14,7 +14,7 @@ function cargarDatos() {
     };
 }
 function cargarTablaHospital() {
-    tablaHospital.innerHTML = '';
+    tablaHospital.innerHTML = ``;
     fetch("http://SistemaCovid-19.somee.com/Hospital")
         .then(respuesta => respuesta.json())
         .then((data) => {
@@ -42,6 +42,9 @@ function cargarTablaHospital() {
         });
 }
 cargarTablaHospital();
+
+
+
 function agragarHospital() {
     cargarDatos();
     fetch("http://SistemaCovid-19.somee.com/Hospital/agregar",
