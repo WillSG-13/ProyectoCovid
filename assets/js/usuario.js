@@ -114,7 +114,7 @@ function cargarUsuario() {
             <td>${usuario.idUsuario}</td>
             <td>${usuario.numeroCedula}</td>
             <td>${usuario.nombreCompleto}</td>
-            <td>${usuario.fechaNacimiento.split("T")[0]}</td>
+            <td>${usuario.fechaNacimiento.  }</td>
             <td>${usuario.email}</td>
             <td>${usuario.numeroTelefono}</td>
             <td>${usuario.estado}</td>
