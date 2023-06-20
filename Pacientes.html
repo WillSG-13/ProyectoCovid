@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Navbar-With-Button-icons.css">
     <link rel="stylesheet" href="assets/css/usuarios.css">
+    <link rel="stylesheet" href="assets/css/paciente.css">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </head>
@@ -67,7 +68,7 @@
                                                 Bien
                                             </div>
                                             <div class="invalid-feedback">
-                                                 Ingrese un numero de cedula;
+                                                Ingrese un numero de cedula;
                                             </div>
                                         </div>
                                     </div>
@@ -115,7 +116,7 @@
                                                     Bien
                                                 </div>
                                                 <div class="invalid-feedback">
-                                                     seleccione una Provincia </div>
+                                                    seleccione una Provincia </div>
                                         </div>
                                     </div>
                                 </div>
@@ -162,7 +163,7 @@
                                         Bien
                                     </div>
                                     <div class="invalid-feedback">
-                                        Porfavor seleccione una etapa de vida  
+                                        Porfavor seleccione una etapa de vida
                                     </div>
                                 </div>
                             </div>
@@ -199,15 +200,15 @@
                                 <table class="table my-0" id="dataTable">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
                                             <th>Cedula</th>
                                             <th>Nombre</th>
                                             <th>Edad</th>
-                                            <th>Provincia</th>
-                                            <th>Email</th>
-                                            <th>Num Tel</th>
-                                            <th>Estado</th>
-                                            <th>Etapa vida</th>
+                                            <th>Casos</th>
+                                            <th>provincia</th>
+                                            <th>email</th>
+                                            <th>numeroTelefono</th>
+                                            <th>estado</th>
+                                            <th>etapaVida</th>
                                             <th class="text-center">Acciones</th>
                                         </tr>
                                     </thead>
@@ -294,6 +295,161 @@
         </div>
     </div>
 
+    <!--Modals-->
+    <div class="modal " id="modalEditarPaciente" tabindex="" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId"> Agregar Hospital</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="width: auto;">
+                    <form class="m-needs-validation" novalidate id="m-frmUsuario">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="m-numeroCedula">Cedula</label>
+                                    <input class="form-control" id="m-numeroCedula" aria-describedby="emailHelp"
+                                        required readonly>
+                                    <div class="valid-feedback">
+                                        Bien
+                                    </div>
+                                    <div class="invalid-feedback">
+                                         Ingrese un numero de cedula;
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="m-nombreCompleto">Nombre Completo</label>
+                                    <input type="text" class="form-control" id="m-nombreCompleto" required>
+                                    <div class="valid-feedback">
+                                        Bien
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Ingrese nombre completo
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="m-edad">Edad
+                                    </label>
+                                    <input class="form-control" type="text" required id="m-edad">
+                                    <div class="valid-feedback">
+                                        Bien
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Ingrese la fecha de edad
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label">Provincia</label>
+                                        <select class="form-select" id="m-provincia" required>
+                                            <option selected disabled value="">Selecciona una Provincia</option>
+                                            <option value="Puntarenas">Puntarenas</option>
+                                            <option value="Alajuela">Alajuela</option>
+                                            <option value="Cartago">Cartago</option>
+                                            <option value="Guanacaste">Guanacaste</option>
+                                            <option value="Limon">Limon</option>
+                                            <option value="San Jose">San Jose</option>
+                                            <option value="Heredia">Heredia</option>
+                                        </select>
+                                        <div class="valid-feedback">
+                                            Bien
+                                        </div>
+                                        <div class="invalid-feedback">
+                                             seleccione una Provincia </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="m-email">Correo Electronico</label>
+                                    <input class="form-control" type="email" id="m-email" required>
+                                    <div class="valid-feedback">
+                                        Bien
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Ingrese el correo correctamente
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6"">
+                                <div class=" form-group">
+                                <label for="m-numeroTelefono">Telefono</label>
+                                <input class="form-control" type="tel" required id="m-numeroTelefono">
+                                <div class="valid-feedback">
+                                    Bien
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el numero de celular
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="m-password">Etapa de Vida</label>
+                            <select class="form-select" id="m-etapaDeVida" required>
+                                <option selected disabled value="">Selecciona etapa </option>
+                                <option value="Infancia">Infancia</option>
+                                <option value="Niñez">Niñez</option>
+                                <option value="Adolescencia">Adolescencia</option>
+                                <option value="Juventud">Juventud</option>
+                                <option value="Adultez">Adultez</option>
+                                <option value="Ancianidad">Ancianidad</option>
+                            </select>
+                            <div class="valid-feedback">
+                                Bien
+                            </div>
+                            <div class="invalid-feedback">
+                                Porfavor seleccione una etapa de vida  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label">Estado</label>
+                                <select class="form-select" id="m-estado" required>
+                                    <option selected disabled value="">Selecciona un Estado</option>
+                                    <option value="ACT">Activo</option>
+                                    <option value="INAC">Inactivo</option>
+                                </select>
+                                <div class="valid-feedback">
+                                    Bien
+                                </div>
+                                <div class="invalid-feedback">
+                                    Porfavor seleccione un estado 
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6"">
+                        <div class=" form-group">
+                            <label for="m-cantidadDeCasos">Cantidad de Casos</label>
+                            <input class="form-control" type="tel" required id="m-cantidadDeCasos" readonly>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group form-check p-2" style="text-align: right;">
+                    <button type="submit" class="btn btn-primary">
+                        Editar
+                    </button>
+                </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/theme.js"></script>

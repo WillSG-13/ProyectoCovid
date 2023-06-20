@@ -70,19 +70,7 @@ function mostrarModalEditar(idHospital, nombre, estado, provincia ) {
     document.getElementById('m-estado').value = estado.trim();
     modalEditarHospital.show();
 }
-function cargarDatosModal()
-{
-    var nombre = document.getElementById('m-nombre').value;
-    var provinvincia = document.getElementById('m-provincia').value;
-    var idHospital=  document.getElementById('m-idHospital').value;
-    var estado = document.getElementById('m-estado').value.trim();
-   data = {
-        idHospital: idHospital,
-        nombre: nombre,
-        provincia: provinvincia,
-        estado: estado
-    };
-}
+ 
 function editarHospital() {
     cargarDatosModal();
     console.log(data);
@@ -96,7 +84,7 @@ function editarHospital() {
     }).then(response =>{
         if (response.status == 200) {
             swal({
-                title: "Eliminado Correctamente",
+                title: "Modificado Correctamente",
                 icon: "success",
                 buttons: false,
                 timer: 1000

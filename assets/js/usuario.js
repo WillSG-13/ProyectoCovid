@@ -27,7 +27,6 @@ function cargarDatos() {
 function editarUsuario(e) {
     e.preventDefault();
     cargarDatosModal();
-
     fetch("http://SistemaCovid-19.somee.com/Usuarios/modificar",
         {
             method: "PUT",
@@ -45,7 +44,6 @@ function editarUsuario(e) {
         .catch(console.log)
 }
 function agregarUsuario() {
-    e.preventDefault();
     cargarDatos();
     fetch("http://SistemaCovid-19.somee.com/Usuarios/agregar",
         {
@@ -59,6 +57,7 @@ function agregarUsuario() {
         .then((contenidoRespuesta) => {
             if (contenidoRespuesta === true) {
                 cargarUsuario();
+                console.log("hoola que hce");
             }
         })
         .catch(error => {
@@ -77,10 +76,11 @@ function mostrarModalEditar(idUsuario, numeroCedula, estado, rol, nombreCompleto
     document.getElementById('m-email').value = email;
     document.getElementById('m-password').value = contrasena;
     document.getElementById('m-rol').value = rol;
-    document.getElementById('m-estado').value = estado;
+    document.getElementById('m-estado').value = estado.trim();
 
     modalEditarUsuario.show();
 }
+
 function cargarUsuario() {
     tablaUsuario.innerHTML = '';
     fetch("http://SistemaCovid-19.somee.com/Usuarios")
@@ -92,7 +92,7 @@ function cargarUsuario() {
                     <td>${usuario.idUsuario}</td>
                     <td>${usuario.numeroCedula}</td>
                     <td>${usuario.nombreCompleto}</td>
-                    <td>${usuario.fechaNacimiento}</td>
+                    <td>${usuario.fechaNacimiento.split("T")[0]}</td>
                     <td>${usuario.email}</td>
                     <td>${usuario.numeroTelefono}</td>
                     <td>${usuario.estado}</td>
@@ -110,7 +110,7 @@ function cargarUsuario() {
                         </button>
                     </td>
                 </tr>`;
-            }
+            }``
         });
 }
 function cargarUsuarioModal() {
@@ -298,12 +298,12 @@ function cargarTablaRol(data) {
     Array.prototype.slice.call(forms)
         .forEach(function (form) {
             form.addEventListener('submit', function (event) {
+                event.preventDefault();
                 if (!form.checkValidity()) {
-                    event.preventDefault();
                     event.stopPropagation();
                 }
                 else {
-                    agregarUsuario(event);
+                    agregarUsuario();
                     form.reset();
                 }
                 form.classList.add('was-validated')
