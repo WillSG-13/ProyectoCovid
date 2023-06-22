@@ -57,7 +57,6 @@ function agregarUsuario() {
         .then((contenidoRespuesta) => {
             if (contenidoRespuesta === true) {
                 cargarUsuario();
-                console.log("hoola que hce");
             }
         })
         .catch(error => {
