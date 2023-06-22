@@ -35,6 +35,8 @@ function nav() {
 
 var masternav = document.querySelector('#masternav-lateral');
 function navLateral() {
+    console.log(sessionStorage.getItem("rol"));
+    if(sessionStorage.getItem("rol")==="ADMIN"  || sessionStorage.getItem("rol")==="DOC"){
     masternav.innerHTML += ` 
     <nav class="navbar navbar-dark align-items-start side sidebar-dark accordion bg-gradient-primary p-0 nav" >
     <div class=" flex-column p-0 m-4 ">
@@ -82,6 +84,7 @@ function navLateral() {
         </ul>
     </div>
 </nav> `;
+    }
 }
 
 
