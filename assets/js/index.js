@@ -19,5 +19,3 @@ function getCookies(){
     }
     return false;
 }
-
-validateLogin();
