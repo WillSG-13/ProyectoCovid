@@ -218,6 +218,27 @@ namespace API_COVID.Controllers
                 return StatusCode(500, ex.Message);
             }
         }
+        [HttpGet("ultimoCasoAgregado")]
+        public ActionResult<Casos> GetUltimoCasoAgregado()
+        {
+            try
+            {
+                // Consulta para obtener el último caso agregado ordenando por el ID de forma descendente
+                var ultimoCaso = contexto.Casos.OrderByDescending(c => c.idCaso).FirstOrDefault();
+
+                if (ultimoCaso == null)
+                {
+                    return NotFound(); // Si no se encuentra ningún caso, devolver un error 404
+                }
+
+                return ultimoCaso; // Devolver el último caso encontrado
+            }
+            catch (Exception ex)
+            {
+                // Manejar cualquier excepción y devolver una respuesta de error
+                return StatusCode(500, ex.Message);
+            }
+        }
 
     }
 }

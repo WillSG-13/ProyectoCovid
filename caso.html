@@ -6,235 +6,154 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>CRCovid</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
     <link rel="stylesheet" href="assets/css/Navbar-With-Button-icons.css">
     <script src="assets/js/funciones.js"></script>
+    <script src="assets/js/Caso.js"></script>
+    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body id="page-top">
     <div class="containers">
         <div id="masternav"></div>
 
-    <div id="wrapper">
-        <div id="masternav-lateral" style="background-color:#224abe ; "></div>
+        <div id="wrapper">
+            <div id="masternav-lateral" style="background-color:#224abe ; "></div>
 
-        <div class="d-flex flex-column " id="content-wrapper">
-            <div id="content">
-                <div class="container-fluid">
-                    <div class="d-sm-flex justify-content-between align-items-center justify-content-xl-center mb-4"
-                        style="margin-top: 27px;">
-                        <h3 class="fs-1 text-dark mb-0" style="font-size: 30px;">Control Ingresos</h3>
-                    </div>
-                       <!--tarjeta datos del usuario-->
-                    <div class="card shadow ">
-                        <!--Cabecera de la Tarjeta-->
-                        <div class="card-header">
-                            <div class="row">
-                                <div class="col-md-6 text-nowrap">
-                                    <div id="dataTable_length" class="dataTables_length"
-                                        aria-controls="dataTable">
-                                        <p class="text-primary m-0 fw-bold">Datos del paciente</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 text-nowrap div-header-button">
-                                    <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
-                                        <a href="Pacientes.html"> <button class="btn btn-primary" type="button"
-                                        style="color: rgb(255, 255, 255);" >+</button></a>
-                                    </div>
-                                </div>
-                            </div>edad
+            <div class="d-flex flex-column " id="content-wrapper">
+                <div id="content">
+                    <div class="container-fluid">
+                        <div class="d-sm-flex justify-content-between align-items-center justify-content-xl-center mb-4"
+                            style="margin-top: 27px;">
+                            <h3 class="fs-1 text-dark mb-0" style="font-size: 30px;">Control Ingresos</h3>
                         </div>
-                        <!--Cuerpo de la tarjeta-->
-                        <div id="card-datos-p" class="">
-                            <div class="card-body-boleta content-wrapper">
-                                <div class="row fila">
-                                    <div class="col-md-4 columna">
-                                        <p class="texto-fila">Nombre: <b></b> </p>
+                        <!--tarjeta datos del usuario-->
+                        <div class="card shadow ">
+                            <!--Cabecera de la Tarjeta-->
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-md-6 text-nowrap">
+                                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                                            <p class="text-primary m-0 fw-bold">Datos del paciente</p>
+                                        </div>
                                     </div>
-                                    <div class="col-md-4 columna">
-                                        <p class="texto-fila ">Edad: <b></b></p>
-                                    </div>
-
-                                    <div class="col-md-4 columna">
-                                        <p class="texto-fila">Fecha Ingreso:<b></b> </p>
-                                    </div>
-                                </div>
-
-                                <div class="row fila">
-                                    <div class="col-md-4 columna">
-                                        <p class="texto-fila">Cedula:<b></b></p>
-                                    </div>
-                                    <div class="col-md-4 columna">
-                                        <p class="texto-fila">Provincia: <b></b></p>
-                                    </div>
-                                    <div class="col-md-4 columna">
-                                        <p class="texto-fila">Fecha Nacimiento: <b></b> </p>
-                                    </div>
-
-                                </div>
-
-                                <div class="row fila">
-                                    <div class="col-md-4 columna">
-                                        <p class="texto-fila">Sexo: <b></b> </p>
-                                    </div>
-                                    <div class="col-md-4 columna">
-                                        <p class="texto-fila">Correo : <b></b>
-                                        </p>
-                                    </div>
-                                    <div class="col-md-4 columna">
-                                        <p class="texto-fila">Celular : <b></b> </p>
-                                    </div>
-                                </div>
-
-                                <div class="row fila"
-                                    <div class="col-md-12 columna">
-                                        <p class="texto-fila">Etapa de vida: <b></b> </p>
+                                    <div class="col-md-6">
+                                        <div class="text-md-end dataTables_filter" id="dataTable_filter">
+                                            <label class="form-label">
+                                                <input type="search" class="form-control form-control-sm"
+                                                    aria-controls="dataTable" placeholder="Buscar" id="Buscador"
+                                                    onclick="llenarDatos()">
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <!--Cuerpo de la tarjeta-->
+                            <div id="card-datos-p" class="">
+                                <form class="card-body-boleta content-wrapper">
+                                    <div class="row fila">
+                                        <div class="col-md-4 columna">
+                                            <p class="texto-fila">Nombre: <b id="nombre"></b> </p>
+                                        </div>
+                                        <div class="col-md-4 columna">
+                                            <p class="texto-fila ">Edad: <b id="edad"></b></p>
+                                        </div>
+
+                                        <div class="col-md-4 columna">
+                                            <p class="texto-fila">Fecha Ingreso:<b id="fecha"></b> </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row fila">
+                                        <div class="col-md-7 columna">
+                                            <p class="texto-fila">Cedula:<b id="cedula"></b></p>
+                                        </div>
+                                        <div class="col-md-5 columna">
+                                            <p class="texto-fila" >Provincia: <b id="provincia" ></b> </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row fila">
+                                        <div class="col-md-6 columna">
+                                            <p class="texto-fila">Correo : <b id="email"></b>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6 columna">
+                                            <p class="texto-fila">Celular : <b id="celular"></b> </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row fila" <div class="col-md-12 columna">
+                                        <p class="texto-fila">Etapa de vida: <b id="etapaVida"></b> </p>
+                                    </div>
+                            </div>
+                            </form>
+                        </div>
+                        <div class="div-footer-card">
+                            <button class="btn btn-primary" type="button" onclick="mostrarModalEditarUsuario()"
+                                style="color: rgb(255, 255, 255);">Ingreso</button>
+                        </div>
+                        <div class="card shadow">
+                            <!--encabezado de procedimientos-->
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-md-6 text-nowrap">
+                                        <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable">
+                                            <p class="text-primary m-0 fw-bold">Lista de Sintomas</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 text-nowrap div-header-button">
+    
+                                    </div>
+                                </div>
+                            </div>
+                            <!--fin de encabezado procedimientos-->
+                            <div class="card-body">
+                                <div class="table-responsive table mt-2" id="myTable" role="grid"
+                                    aria-describedby="dataTable_info">
+                                    <table class="table my-0" id="dataTable">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-start">Nombre Sintoma</th>
+                                                <th class="text-start">Duracion</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="body">
+                                        
+    
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+    
+                            <!--footer de la carrd-->
+                            
                         </div>
                         <!--Pie de la tarjeta-->
+                       
                         <div class="div-footer-card">
-                            <button class="btn btn-primary" type="button"
-                                onclick="mostrarModalEditarUsuario()"
-                                style="color: rgb(255, 255, 255);">Ingreso</button>
+                            <button class="btn btn-primary" type="button" style="color: rgb(255, 255, 255); margin-top: 0px!important;"
+                                onclick="mostrarModalAgregarSintoma()">Agregar</button>
+                        </div>
+                        <div class="div-footer-card">
+                            <button class="btn btn-success" type="button" style="color: rgb(255, 255, 255); margin-top: 0px!important;"
+                                onclick="MostrarModalCaso()">Añadir Caso </button>
                         </div>
                     </div>
                     <!--fin tarjeta usuario-->
 
                     <!--Tarjeta de Sintomas-->
-                    <div class="card shadow">
-                        <!--encabezado de procedimientos-->
-                        <div class="card-header">
-                            <div class="row">
-                                <div class="col-md-6 text-nowrap">
-                                    <div id="dataTable_length" class="dataTables_length"
-                                        aria-controls="dataTable">
-                                        <p class="text-primary m-0 fw-bold">Lista de Sintomas</p>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 text-nowrap div-header-button">
-
-                                </div>
-                            </div>
-                        </div>
-                        <!--fin de encabezado procedimientos-->
-                        <div class="card-body">
-                            <div class="table-responsive table mt-2" id="dataTable" role="grid"
-                                aria-describedby="dataTable_info">
-                                <table class="table my-0" id="dataTable">
-                                    <thead>
-                                        <tr>
-                                            <th class="text-start">Nombre Sintoma</th>
-                                            <th class="text-start">&nbsp;Fecha Inicio </th>
-                                            <th class="text-start">Fecha Fin &nbsp; &nbsp; &nbsp;&nbsp;</th>
-                                            <th class="text-start">Clasificacion</th>
-                                            <th class="text-center">Acciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="text-start">Dolor de cabeza</td>
-                                            <td class="text-start">10/12/2022</td>
-                                            <td class="text-start">16/12/2022</td>
-                                            <td class="text-start">Primario</td>
-                                            <td class="text-center" style="padding-right: 0px; ">
-                                                <button class="btn btn-danger" type="button"
-                                                    style="margin-left: 8px;">Eliminar</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-start">Dolor de Garganta</td>
-                                            <td class="text-start">16/12/2022</td>
-                                            <td class="text-start">20/12/2022</td>
-                                            <td class="text-start">Primario</td>
-                                            <td class="text-center" style="padding-right: 0px; ">
-                                                <button class="btn btn-danger" type="button"
-                                                    style="margin-left: 8px;">Eliminar</button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="text-start">Fiebre</td>
-                                            <td class="text-start">20/12/2022</td>
-                                            <td class="text-start">30/12/2022</td>
-                                            <td class="text-start">Primario</td>
-                                            <td class="text-center" style="padding-right: 0px; ">
-                                                <button class="btn btn-danger" type="button"
-                                                    style="margin-left: 8px;">Eliminar</button>
-                                            </td>
-                                        </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-
-                        <!--Cuerpo de procedimientos no invasivos-->
-                        <div hidden id="card-datos-pr" class="">
-                            <!--todas las filas se dividen en dos -->
-                            <!--Primera fila-->
-                            <div class="row fila">
-                                <!--Fila de la tabla superior-->
-                                <div class="row">
-                                    <div class="col-md-5 columna">
-                                        <p class="texto-fila ">Sintoma : <b>sonda de tórax</b></p>
-                                    </div>
-                                    <div class="col-md-3 columna">
-                                        <p class="texto-fila ">Tipo: <b>Invasivo</b></p>
-                                    </div>
-                                    <div class="col-md-3 columna">
-                                        <p class="texto-fila ">Aplicaciones: <b>3</b></p>
-                                    </div>
-                                    <div class="col-md-1 columna div-card-button">
-                                        <div class="col-md-1 columna div-card-button">
-                                            <button class="btn btn-info btn-info-collapse " type="button"
-                                                style="color: rgb(255, 255, 255);"
-                                                onclick=" mostrarModalModificarNoequipable()">Detalles</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--tabla interna de la fila-->
-                            </div>
-                            <div class="row fila">
-                                <!--Fila de la tabla superior-->
-                                <div class="row">
-                                    <div class="col-md-5 columna">
-                                        <p class="texto-fila ">Procedimiento : <b>vía central</b></p>
-                                    </div>
-                                    <div class="col-md-3 columna">
-                                        <p class="texto-fila ">Tipo: <b>Invasivo</b></p>
-                                    </div>
-                                    <div class="col-md-3 columna">
-                                        <p class="texto-fila ">Aplicaciones: <b>3</b></p>
-                                    </div>
-                                    <div class="col-md-1 columna div-card-button">
-                                        <div class="col-md-1 columna div-card-button">
-                                            <button class="btn btn-info btn-info-collapse " type="button"
-                                                style="color: rgb(255, 255, 255);"
-                                                onclick=" mostrarModalModificarEquipable()">Detalles</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--tabla interna de la fila-->
-                            </div>
-
-
-                        </div>
-
-                        <!--footer de la carrd-->
-                        <div class="div-footer-card">
-                            <button class="btn btn-primary" type="button" style="color: rgb(255, 255, 255);"
-                                onclick="mostrarModalAgregarSintoma()">Agregar</button>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>
     </div>
 
     <a class="border rounded d-inline scroll-to-top" href="#page-top"><i class="fas fa-angle-up"></i></a>
-    
+
     <div id="footnote">
         <footer class="bg-white sticky-footer">
             <div class="container my-auto">
@@ -270,12 +189,12 @@
                 <div class="modal-body" style="width: auto;">
                     <form>
                         <div class="row">
-                            
+
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Cedula</label>
                                     <input class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                                    
+
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -347,35 +266,95 @@
         </div>
     </div>
 
-    <div class="modal " id="modalAgregarSintoma" tabindex="" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
-    aria-labelledby="modalTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">Lista de Sintomas</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-7">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>Seleccione Sintoma</option>
-                            <option value="1">Dolor de Cabeza</option>
-                            <option value="1">Dolor de garganta</option>
-                            <option value="2">Fiebre</option>
-                        </select>
+    <div class="modal " id="modalAgregarSintoma" tabindex="" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">Lista de Sintomas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <label for="exampleInputEmail1">Sintomas :</label>
+                            <select class="form-select" aria-label="Default select example" id="sintoma">
+                                <option selected>Seleccione Sintoma</option>
+                                <option value="Fiebre o escalofríos">Fiebre o escalofríos</option>
+                                <option value="Tos">Tos</option>
+                                <option value="Dificultad para respirar">Dificultad para respirar (sentir que le falta
+                                    el aire)</option>
+                                <option value="Fatiga">Fatiga</option>
+                                <option value="Dolores musculares y corporales">Dolores musculares y corporales</option>
+                                <option value="Dolor de cabeza">Dolor de cabeza</option>
+                                <option value="Pérdida reciente del olfato o el gusto">Pérdida reciente del olfato o el
+                                    gusto</option>
+                                <option value="Dolor de garganta">Dolor de garganta</option>
+                                <option value="Congestión o moqueo">Congestión o moqueo</option>
+                                <option value="Náuseas o vómitos">Náuseas o vómitos</option>
+                                <option value="Diarrea">Diarrea</option>
+                            </select>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Cantidad de Dias</label>
+                                <input class="form-control" id="dias" aria-describedby="emailHelp">
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-5">
+                </div>
+                <div class="row" style="text-align: end;">
+
+                    <div class="col-md-12">
                         <button type="button" onclick="alerta()" class="btn btn-info "
-                            style="color: rgb(255, 255, 255);">agregar</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" onclick="ocultar()">Close</button>
+                            style="color: rgb(255, 255, 255);" onclick="agregarSintoma()">Seleccionar</button>
+
+
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            onclick="ocultar()">Close</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     </div>
+<div class="modal " id="modalAgregarCaso" tabindex="" data-bs-backdrop="static" data-bs-keyboard="false"
+        role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">Lista de Sintomas</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <label for="exampleInputEmail1">Sintomas :</label>
+                                <select class="form-select" aria-label="Default select example" id="hospital">
+                                    <option selected disabled >Seleccione Hospital</option>
+                                </select>
+                            </div>
+                           
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="row" style="text-align: end;">
 
+                    <div class="col-md-12">
+                        <button type="button" class="btn btn-info "
+                            style="color: rgb(255, 255, 255);" onclick="AgregarCaso()">Finalizar</button>
+
+
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            onclick="ocultar()">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/theme.js"></script>
     <script src="assets/js/funciones.js"></script>

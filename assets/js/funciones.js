@@ -93,7 +93,5 @@ function navLateral() {
 </nav> `;
     }
 }
-
-
 nav();
 navLateral();
