@@ -4,53 +4,113 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Register - Brand</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <title>Register - Brand</title> <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&amp;display=swap">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/Navbar-With-Button-icons.css">
+    <link rel="stylesheet" href="assets/css/usuarios.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body class="bg-gradient-primary">
-    <div class="container">
+    <div class="container" style="max-width: 800px!important;">
         <div class="card shadow-lg o-hidden border-0 my-5 mx-5">
             <div class="card-body p-4">
                 <div class="p-5">
                     <div class="text-center">
                         <h4 class="text-dark mb-4">Crear Cuenta!</h4>
                     </div>
-                    <form class="user">
-                        <div class="row mb-3">
-                            <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user" type="text"
-                                    id="exampleFirstName" placeholder="Nombre" name="first_name">
+                    <form class="m-needs-validation" novalidate id="needs-validation">
+                        <input type="text" id="id" hidden>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="m-numeroCedula">Cedula</label>
+                                    <input class="form-control" id="m-numeroCedula" aria-describedby="emailHelp"
+                                        required>
+                                    <div class="valid-feedback">
+                                        Bien
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Mal
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-sm-6"><input class="form-control form-control-user" type="text"
-                                    id="exampleLastName" placeholder="Apellidos" name="last_name"></div>
-                        </div>
-                        <div class="mb-3"><input class="form-control form-control-user" type="email"
-                                id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Correo Electronico"
-                                name="email"></div>
-                        <div class="row mb-3">
-                            <div class="col-sm-6 mb-3 mb-sm-0"><input class="form-control form-control-user"
-                                    type="password" id="examplePasswordInput" placeholder="Contraseña" name="password">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="m-nombreCompleto">Nombre Completo</label>
+                                    <input type="text" class="form-control" id="m-nombreCompleto" required>
+                                    <div class="valid-feedback">
+                                        Bien
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Ingrese nombre completo
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-sm-6"><input class="form-control form-control-user" type="password"
-                                    id="exampleRepeatPasswordInput" placeholder="Reescriba su contraseña"
-                                    name="password_repeat"></div>
                         </div>
-                        <div style="display: flex; flex-direction: row-reverse; text-align: center;">
-                            <button class="btn btn-primary  btn-user" type="submit">Registrar Cuenta</button>
-
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="m-fechaNacimiento">Fecha nacimiento</label>
+                                    <input class="form-control" type="date" required id="m-fechaNacimiento">
+                                    <div class="valid-feedback">
+                                        Bien
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Ingrese la fecha de nacimiento
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="m-password">contraseña</label>
+                                    <input class="form-control" type="password" required id="m-password">
+                                    <div class="valid-feedback">
+                                        Bien
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        ingrese una contraseña
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="m-email">Correo Electronico</label>
+                                    <input class="form-control" type="email" id="m-email" required>
+                                    <div class="valid-feedback">
+                                        Bien
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Ingrese el correo correctamente
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6"">
+                            <div class=" form-group">
+                                <label for="m-numeroTelefono">Telefono</label>
+                                <input class="form-control" type="tel" required id="m-numeroTelefono">
+                                <div class="valid-feedback">
+                                    Bien
+                                </div>
+                                <div class="invalid-feedback">
+                                    Ingrese el numero de celular
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                <div class="form-group form-check p-2" style="text-align: right;">
+                    <button type="submit" class="btn btn-primary">
+                        Submit
+                    </button>
+                </div>
+                </form>
                     <hr>
                     <div class="text-center">
-                        <a  href="login.html">Ya tienes una Cuenta? Inicia Sesion!</a>
-                    </div>
-                    <div class="text-center">
-                        <a type="button" class="btn btn-dark small" href="index.html">Regresar!</a>
+                        <a href="login.html">Ya tienes una Cuenta? Inicia Sesion!</a>
                     </div>
                 </div>
             </div>
@@ -58,7 +118,7 @@
     </div>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="assets/js/bs-init.js"></script>
-    <script src="assets/js/theme.js"></script>
+    <script src="assets/js/registro.js"></script>
 </body>
 
 </html>

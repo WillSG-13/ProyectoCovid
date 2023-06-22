@@ -26,12 +26,19 @@ function nav() {
                 <span class="navbar-toggler-icon" style=" "></span>
         </button>
         <div class="collapse navbar-collapse " id="navbar SupportedContent">
-                <button type="button" class="btn btn-dark ml btnl"> <a class="nav-link" href="/login.html" id="menu-Item">Ingresar</a></button>
-                <button type="button" class="btn btn-light btnl"> <a class="nav-link" href="/registro.html" id="menu-Item">Registrarse</a></button> 
+        <a class="nav-link active text" role="button"  style="padding-right: 10px; color: white;"><span>${sessionStorage.getItem("nombre")}</span></a>
+                <button type="button" class="btn btn-light btnl"> <a class="nav-link" onclick="logout()" id="menu-Item">CerrarSession</a></button> 
         </div>
         </div>
     </nav>`;
 }
+function logout() {
+    sessionStorage.setItem("sesion", "false");
+    sessionStorage.setItem("rol", "");
+    sessionStorage.setItem("nombre", "");
+    sessionStorage.setItem("id", "");
+    window.location.href = "login.html";
+  }
 
 var masternav = document.querySelector('#masternav-lateral');
 function navLateral() {
