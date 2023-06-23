@@ -34,18 +34,14 @@ function alertaAceptarProcedimiento() {
       }
     });
 }
-
 var ModalAgregarSintoma = new bootstrap.Modal(document.getElementById('modalAgregarSintoma'));
 function mostrarModalAgregarSintoma() {
   ModalAgregarSintoma.show();
 }
-
 var modalEditarUsuario = new bootstrap.Modal(document.getElementById('modalEditarPaciente'));
-
 function mostrarModalEditarUsuario() {
   modalEditarUsuario.show();
 }
-
 function llenarDatos() {
   var Buscador = document.getElementById('Buscador');
   var contenidoResultado = document.querySelector('#card-body-boleta');
@@ -94,24 +90,7 @@ function llenarDatos() {
         console.log('Error:', error);
       });
   });
-};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 function agregarSintoma() {
  
   var sintoma = document.getElementById('sintoma').value;
@@ -124,21 +103,20 @@ function agregarSintoma() {
     <td>${dias}</td>
     </tr>`;
 }
-
-function AgregarCaso() {
+function agregarSintomas() {
   //--------------------------------------------------
   var tabla = document.querySelector('#dataTable');
   // Obtener todas las filas de la tabla
   var filas = tabla.getElementsByTagName('tr');
-  // Array para almacenar los datos
+  // Array para almacenar los datoshttps://localhost:7174/Casos/ultimoCasoAgregado
   var datos = [];
-  
-  fetch('https://localhost:7174/Casos/ultimoCasoAgregado')
+  fetch('http://SistemaCovid-19.somee.com/Casos/ultimoCasoAgregado')
     .then(response => response.json())
     .then(data => {
+    
       var ultimoCaso = data; // Almacenar el último caso en una variable
       var ultimo = ultimoCaso.idCaso;
-      
+    
       // Iterar por cada fila de la tabla (excluyendo la primera fila de encabezado)
       for (var i = 1; i < filas.length; i++) {
         var fila = filas[i];
@@ -148,47 +126,42 @@ function AgregarCaso() {
         var cantidad = parseInt(celdas[1].textContent.trim());
 
         // Crear objeto JSON con los valores, incluyendo el idCaso
-        var objeto = { idCaso: ultimo, nombre: nombre, cantidad: cantidad };
+        var objeto = {idSintomaCaso:0, caso: ultimo, sintoma: nombre, cantidadDias: cantidad };
         // Agregar el objeto al array de datos
         datos.push(objeto);
       }
-      
       // Hacer algo con los datos, incluyendo el último caso
       // ...
-      
-      // Enviar los datos a través de fetch iterativamente
-      datos.forEach(cs => {
-        console.log(cs)
-        fetch('https://localhost:7174/api/SintomaCaso', {
+      for(const cs of datos){
+       
+        fetch('http://SistemaCovid-19.somee.com/SinstomaCaso/agregarSintomaCaso', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(cs)
         })
-          .then(response => response.json())
-          .then(data => {
-            // Manejar la respuesta del servidor
-            console.log(data);
+          .then(response =>{
+            console.log(response.status);
+            console.log(cs);
           })
           .catch(error => {
             // Manejar cualquier error
             console.error('Error:', error);
           });
-      });
+      }
+    
     })
     .catch(error => {
       console.error('Error:', error);
     });
 }
+function agregarCaso() {
 
-function add() {
-  
   var fechaActual = new Date();
   var selectHospital = document.getElementById('hospital').value;
   var cedula = document.getElementById('Buscador').value;
   var provincia = document.getElementById('provincia').textContent;
-
 
 
   var caso =
@@ -223,6 +196,11 @@ function add() {
           buttons: false,
           timer: 1000
         })
+        agregarSintomas();
+        document.getElementById("Buscador").value = "";
+        agregarcaso.hide();setTimeout(function() {
+          window.location.href = "caso.html";
+        }, 1500);
         // Realizar cualquier acción adicional después de agregar el caso
       } else {
         swal({
@@ -230,7 +208,7 @@ function add() {
           text: "Error al agregar el caso",
           icon: "error",
           buttons: false,
-          timer: 1500
+          timer: 1000
         })
         // Realizar cualquier acción en caso de error
       }
@@ -239,11 +217,8 @@ function add() {
       console.log('Error en la solicitud:', error);
       // Realizar cualquier acción en caso de error de red u otra excepción
     });
-  console.log(caso);
 }
-
 var agregarcaso = new bootstrap.Modal(document.getElementById('modalAgregarCaso'));
-
 function MostrarModalCaso() {
 
   var selectHospital = document.getElementById('hospital');
@@ -264,4 +239,112 @@ function MostrarModalCaso() {
     .catch(error => console.log(error));
 
   agregarcaso.show()
+}
+function verificarEtiquetas() {
+  
+  var etiquetas = document.querySelectorAll('.master b');
+  for (var i = 0; i < etiquetas.length; i++) {
+    if (etiquetas[i].textContent.trim() === '') {
+      return false;
+    }
+  }
+  return true;
+}
+function setCaso(){
+  if(verificarEtiquetas()){
+    agregarCaso();
+  }
+  else{ swal({
+    title: "Error!",
+    text: "Faltan datos ",
+    icon: "error",
+    buttons: false,
+    timer: 1000
+  })
+  }
+}
+function agregarUsuario(){
+  
+}
+
+//estos metodos no estan en uso para implementar no eliminar 
+function agregarpaciente() {
+  cargarDatos();
+  fetch("http://SistemaCovid-19.somee.com/Paciente/agregar", {
+      method: "PUT",
+      headers: {
+          "content-type": "application/json"
+      },
+      body: JSON.stringify(data)
+  })
+      .then((contenidoRespuesta) => {
+          if (contenidoRespuesta.status === 200) {
+              cargarTablaPaciente();
+          }
+      })
+      .catch(error => {
+          console.log('Error:', error);
+      });
+}
+(function () {
+  'use strict'
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.m-needs-validation')
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+              event.preventDefault();
+              if (!form.checkValidity()) {
+                  event.stopPropagation();
+              }
+              else {
+                  editarPaciente();
+              }
+              form.classList.add('was-validated')
+          }, false)
+      })
+})();
+function editarPaciente() {
+  cargarDatosModal();
+  console.log(data)
+  fetch("http://SistemaCovid-19.somee.com/paciente/modificar",
+      {
+          method: "PUT",
+          headers: {
+              "content-type": "application/json"
+          },
+          body: JSON.stringify(data)
+      })
+      .then(respuesta => {
+          if (respuesta.status == 200) {
+              modalEditarPaciente.hide();
+              cargarTablaPaciente();
+          }
+      })
+      .catch(console.log)
+}
+function cargarDatosModal() {
+  var cedula = parseInt(document.getElementById("m-numeroCedula").value);
+  var nombreCompleto = document.getElementById("m-nombreCompleto").value;
+  var edad = document.getElementById("m-edad").value;
+  var provincia = document.getElementById("m-provincia").value;
+  var numeroTelefono = parseInt(document.getElementById("m-numeroTelefono").value);
+  var email = document.getElementById("m-email").value;
+  var etapaDeVida = document.getElementById("m-etapaDeVida").value;
+  var cantidadDeCasos =  parseInt(document.getElementById("m-cantidadDeCasos").value);
+  var estado = document.getElementById("m-estado").value;
+  console.log(cedula)
+  data = {
+      cedula: cedula,
+      nombreCompleto: nombreCompleto,
+      edad: edad,
+      cantidadCasosAsociados: cantidadDeCasos,
+      provincia: provincia,
+      email: email,
+      numeroTelefono: numeroTelefono,
+      estado: estado,
+      etapaVida: etapaDeVida
+  }
+  
 }

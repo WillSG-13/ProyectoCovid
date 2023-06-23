@@ -7,24 +7,24 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <TimeStampOfAssociatedLegacyPublishXmlFile />
     <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+sF/Jiu8OUuYo/CpozRJtgAAAAACAAAAAAAQZgAAAAEAACAAAAAqU0zpM8g49OZcYr0bP77N68z7N4hGuBXW+zQULU0vkAAAAAAOgAAAAAIAACAAAAAiXrX0UaTY8BdjwQGyRIREWWBNGtk2lzoxfAu67SgB3iAAAADMipNG2frkhXAyJJqNIKDXHoeZYasqV6BY8O8LE5WlzkAAAAD7kWeoMCLMwjZI1yQKz9XVIRYyKfNbkFyO9AR+GQrQA8mchAxUAd/QsuWWkBU4sAN/tJbvFE8ysMXosbLJgW6e</EncryptedPassword>
     <_PublishTargetUrl>ftp://155.254.244.37/www.SistemaCovid-19.somee.com</_PublishTargetUrl>
-    <History>True|2023-06-18T04:56:15.7801082Z;True|2023-06-17T11:40:36.2038249-06:00;True|2023-06-17T11:36:57.1888862-06:00;False|2023-06-17T11:33:31.2583065-06:00;False|2023-06-17T11:32:36.1258885-06:00;True|2023-06-17T11:16:59.0236075-06:00;False|2023-06-17T11:13:44.7260917-06:00;False|2023-06-17T11:13:23.9884858-06:00;True|2023-06-17T11:05:19.4936583-06:00;True|2023-06-17T11:00:50.2335394-06:00;True|2023-06-17T10:38:34.2303652-06:00;False|2023-06-17T10:34:12.3169396-06:00;True|2023-06-17T10:24:22.8411712-06:00;True|2023-06-17T00:37:57.2556460-06:00;False|2023-06-17T00:30:57.5207325-06:00;False|2023-06-17T00:27:59.3694406-06:00;</History>
+    <History>True|2023-06-22T23:25:25.9715468Z;True|2023-06-22T16:19:10.2654604-06:00;True|2023-06-17T22:56:15.7801082-06:00;True|2023-06-17T11:40:36.2038249-06:00;True|2023-06-17T11:36:57.1888862-06:00;False|2023-06-17T11:33:31.2583065-06:00;False|2023-06-17T11:32:36.1258885-06:00;True|2023-06-17T11:16:59.0236075-06:00;False|2023-06-17T11:13:44.7260917-06:00;False|2023-06-17T11:13:23.9884858-06:00;True|2023-06-17T11:05:19.4936583-06:00;True|2023-06-17T11:00:50.2335394-06:00;True|2023-06-17T10:38:34.2303652-06:00;False|2023-06-17T10:34:12.3169396-06:00;True|2023-06-17T10:24:22.8411712-06:00;True|2023-06-17T00:37:57.2556460-06:00;False|2023-06-17T00:30:57.5207325-06:00;False|2023-06-17T00:27:59.3694406-06:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include="API_COVID.deps.json">
-      <publishTime>06/17/2023 22:52:59</publishTime>
+      <publishTime>06/22/2023 17:22:27</publishTime>
     </File>
     <File Include="API_COVID.dll">
-      <publishTime>06/17/2023 22:52:58</publishTime>
+      <publishTime>06/22/2023 17:22:27</publishTime>
     </File>
     <File Include="API_COVID.exe">
-      <publishTime>06/17/2023 22:52:58</publishTime>
+      <publishTime>06/22/2023 17:22:27</publishTime>
     </File>
     <File Include="API_COVID.pdb">
-      <publishTime>06/17/2023 22:52:58</publishTime>
+      <publishTime>06/22/2023 17:22:27</publishTime>
     </File>
     <File Include="API_COVID.runtimeconfig.json">
-      <publishTime>06/17/2023 10:19:41</publishTime>
+      <publishTime>06/22/2023 13:53:26</publishTime>
     </File>
     <File Include="appsettings.Development.json">
       <publishTime>06/06/2023 15:30:54</publishTime>
@@ -87,7 +87,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>06/22/2022 13:59:58</publishTime>
     </File>
     <File Include="Microsoft.Identity.Client.Extensions.Msal.dll">
-      <publishTime>11/19/2021 15:02:00</publishTime>
+      <publishTime>11/19/2021 16:02:00</publishTime>
     </File>
     <File Include="Microsoft.IdentityModel.Abstractions.dll">
       <publishTime>07/01/2022 12:47:38</publishTime>
@@ -111,7 +111,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/29/2020 14:14:12</publishTime>
     </File>
     <File Include="Microsoft.SqlServer.Server.dll">
-      <publishTime>01/27/2022 10:19:08</publishTime>
+      <publishTime>01/27/2022 11:19:08</publishTime>
     </File>
     <File Include="Microsoft.Win32.SystemEvents.dll">
       <publishTime>10/19/2020 12:40:26</publishTime>
@@ -153,13 +153,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/19/2020 12:49:30</publishTime>
     </File>
     <File Include="Swashbuckle.AspNetCore.Swagger.dll">
-      <publishTime>01/10/2023 23:48:20</publishTime>
+      <publishTime>01/11/2023 00:48:20</publishTime>
     </File>
     <File Include="Swashbuckle.AspNetCore.SwaggerGen.dll">
-      <publishTime>01/10/2023 23:48:24</publishTime>
+      <publishTime>01/11/2023 00:48:24</publishTime>
     </File>
     <File Include="Swashbuckle.AspNetCore.SwaggerUI.dll">
-      <publishTime>01/10/2023 23:49:02</publishTime>
+      <publishTime>01/11/2023 00:49:02</publishTime>
     </File>
     <File Include="System.Configuration.ConfigurationManager.dll">
       <publishTime>10/19/2020 12:52:30</publishTime>
@@ -189,7 +189,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>10/19/2020 12:53:38</publishTime>
     </File>
     <File Include="web.config">
-      <publishTime>06/17/2023 22:52:59</publishTime>
+      <publishTime>06/22/2023 17:22:27</publishTime>
     </File>
   </ItemGroup>
 </Project>

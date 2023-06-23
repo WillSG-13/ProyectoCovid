@@ -7,7 +7,7 @@ namespace API_COVID.Controllers
 {
 
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("SinstomaCaso")]
     public class SintomaCasoController : ControllerBase
     {
         private readonly Contexto _context;
@@ -41,6 +41,7 @@ namespace API_COVID.Controllers
 
         // POST: api/SintomaCaso
         [HttpPost]
+        [Route("agregarSintomaCaso")]
         public async Task<ActionResult<SintomaCaso>> PostSintomaCaso(SintomaCaso sintomaCaso)
         {
             _context.SintomaCaso.Add(sintomaCaso);

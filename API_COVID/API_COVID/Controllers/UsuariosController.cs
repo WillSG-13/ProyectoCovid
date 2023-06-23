@@ -3,8 +3,6 @@ using API_COVID.Data;
 using API_COVID.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Data.SqlClient;
-using Microsoft.AspNetCore.Cors;
-
 namespace API_COVID.Controllers
 {
     [ApiController]
@@ -79,22 +77,29 @@ namespace API_COVID.Controllers
             return temp;
         }
 
-      
-        [HttpPut]
-        [Route("Login/{correo}/{contrasena}")]
-        public async Task<IActionResult> Login(string correo, string contrasena)
+        [HttpPost("login")]
+        public Usuarios Login(Login solicitud)
         {
-            // Verificar si el usuario existe en la base de datos
-            var usuario = await contexto.Usuarios.FirstOrDefaultAsync(u => u.Email == correo && u.Contrasena == contrasena);
+            Usuarios user = new Usuarios();
+            bool verificar;
 
-            if (usuario == null)
+            // Verificar las credenciales del usuario consultando la base de datos
+            SqlConnection conection = (SqlConnection)contexto.Database.GetDbConnection();
+            SqlCommand command = conection.CreateCommand();
+            conection.Open();
+            command.CommandType = System.Data.CommandType.Text;
+            command.CommandText = "SELECT dbo.VerificarCredenciales(@Email, @Contrasena)";
+            command.Parameters.AddWithValue("@Email", solicitud.Email);
+            command.Parameters.AddWithValue("@Contrasena", solicitud.Contrasena);
+            verificar = (bool)command.ExecuteScalar();
+            conection.Close();
+            user = this.contexto.Usuarios.FirstOrDefault(u => u.Email == solicitud.Email);
+            // Las credenciales son válidas, el inicio de sesión es exitoso
+            if (verificar == true)
             {
-                return NotFound(); // Usuario no encontrado
+                return user;
             }
-
-            // Realizar acciones adicionales según tus necesidades (por ejemplo, generar token de autenticación)
-
-            return Ok(usuario); // Devolver el usuario en caso de inicio de sesión exitoso
+            return user;
         }
 
     }

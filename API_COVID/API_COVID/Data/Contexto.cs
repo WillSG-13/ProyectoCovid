@@ -15,12 +15,6 @@ namespace API_COVID.Data
         public DbSet<Hospital> Hospital { get; set; }
         public DbSet<Casos> Casos { get; set; }
         public DbSet<SintomaCaso> SintomaCaso { get; set; }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<SintomaCaso>().HasNoKey();
-        }
 
     }
 }
